@@ -6,5 +6,5 @@ class project of CS 5610 - Web Development.
 
 Links:
 * [Application](https://polar-sea-82088.herokuapp.com/)
-* [Assignment 1](https://docs.google.com/document/d/14RHdau7lYAzqB16YaxV4QMYUqAbLH8mhZwP9A-aguU0/edit#)
-* [Project](https://docs.google.com/document/d/1V2D7QPzvW_5PY4p05FszcATrA_Ix4-GcniUJdDjjmDU/edit)
+* [Assignment](https://polar-sea-82088.herokuapp.com/assignment/index.html)
+* [Project](https://polar-sea-82088.herokuapp.com/project/index.html)

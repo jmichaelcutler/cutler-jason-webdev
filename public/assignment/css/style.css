@@ -31,6 +31,10 @@ nav.navbar.navbar-default.navbar-fixed-top {
     color: mintcream;
 }
 
+nav.navbar.navbar-inverse.navbar-fixed-top {
+    padding-right: 15px;
+}
+
 .glyphicon-cog {
     text-align: right;
     padding-right: 15px;
@@ -40,3 +44,4 @@ body {
     padding-bottom: 72px;
     font-size: 18px;
 }
+

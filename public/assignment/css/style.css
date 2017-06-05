@@ -35,8 +35,11 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
     text-align: right;
     padding-right: 15px;
 }
+
+#split-cog {
+    margin-left: 10px;
+}
 body {
-    overflow-x: hidden;
     padding-top: 72px;
     padding-bottom: 72px;
 }

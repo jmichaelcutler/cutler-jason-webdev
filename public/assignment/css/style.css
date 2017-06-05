@@ -3,7 +3,9 @@ textarea.form-control,
 select.form-control {
     margin-bottom: 5px;
 }
-
+a:hover {
+    text-decoration: none;
+}
 nav.navbar.navbar-default.navbar-fixed-top {
     padding-right: 15px;
 }
@@ -29,7 +31,12 @@ nav.navbar.navbar-default.navbar-fixed-top {
     color: mintcream;
 }
 
+.glyphicon-cog {
+    text-align: right;
+    padding-right: 15px;
+}
 body {
     padding-top: 72px;
     padding-bottom: 72px;
+    font-size: 18px;
 }

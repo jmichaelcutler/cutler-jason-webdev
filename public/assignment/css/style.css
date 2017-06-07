@@ -39,6 +39,29 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
 #split-cog {
     margin-left: 10px;
 }
+
+.wd-widget {
+    margin-bottom: 10px;
+}
+
+.wd-widget > img {
+    width: 100%;
+}
+
+#youtube-size {
+    width: 100%;
+    height: 500px;
+}
+
+.wd-widget > .wd-widget-toolbar {
+    position: absolute;
+    right: 15px;
+    background: white;
+    opacity: 0.9;
+    padding: 5px;
+    /*border-bottom-left-radius: 10px;*/
+}
+
 body {
     padding-top: 72px;
     padding-bottom: 72px;

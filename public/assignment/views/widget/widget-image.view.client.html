@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Websites</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="col-sm-4 hidden-xs">
             <div class="navbar-text pull-left">
-                <a href="../page/page-list.html" class="navbar-link">
+                <a href="../page/page-list.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a href="widget-choose.html" class="navbar-link">
+                <a href="widget-choose.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
@@ -31,13 +20,13 @@
 
         <div class="col sm-8">
             <div class="navbar-text pull-left">
-                <a href="widget-list.html" class="navbar-link">
+                <a href="widget-list.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
 
             <div class="navbar-text pull-right">
-                <a href="widget-list.html" class="navbar-link">
+                <a href="widget-list.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -55,7 +44,7 @@
     <div class="col-sm-4 hidden-xs">
         <div class="wd-widget">
             <div class="wd-widget-toolbar">
-                <a href="widget-heading.html">
+                <a href="widget-heading.view.client.html">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-align-justify"></span>
@@ -65,7 +54,7 @@
 
         <div class="wd-widget">
             <div class="wd-widget-toolbar">
-                <a href="widget-heading.html">
+                <a href="widget-heading.view.client.html">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-align-justify"></span>
@@ -77,7 +66,7 @@
 
         <div class="wd-widget">
             <div class="wd-widget-toolbar">
-                <a href="widget-image.html">
+                <a href="widget-image.view.client.html">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-align-justify"></span>
@@ -104,7 +93,7 @@
 
         <div class="wd-widget">
             <div class="wd-widget-toolbar">
-                <a href="widget-youtube.html">
+                <a href="widget-youtube.view.client.html">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-align-justify"></span>
@@ -118,32 +107,32 @@
     <div class="col-sm-8">
         <form>
             <div class="form-group">
-                <label for="video-name">Name</label>
+                <label for="widget-name">Name</label>
                 <input type="text"
                        class="form-control"
-                       id="video-name"
-                       placeholder="Enter video name"/>
+                       id="widget-name"
+                       placeholder="Enter image name"/>
             </div>
 
             <div class="form-group">
-                <label for="video-text">Text</label>
+                <label for="widget-text">Text</label>
                 <input type="text"
                        class="form-control"
-                       id="video-text"
-                       placeholder="Enter video text"/>
+                       id="widget-text"
+                       placeholder="Enter image text"/>
             </div>
 
             <div class="form-group">
-                <label for="video-url">URL</label>
+                <label for="image-url">URL</label>
                 <input type="text"
                        class="form-control"
-                       id="video-url"
-                       placeholder="https://www.youtube.com/embed/IA88AS6Wy_4"/>
+                       id="image-url"
+                       placeholder="http://cdn.iflscience.com/images/042ddea7-9760-5f31-a825-3d1d700d84e6/large-1496748394-cover-image.jpg"/>
             </div>
 
             <div class="form-group">
-                <label for="video-size">Size</label>
-                <select class="form-control" id="video-size">
+                <label for="image-size">Size</label>
+                <select class="form-control" id="image-size">
                     <option>100%</option>
                     <option>90%</option>
                     <option>80%</option>
@@ -156,10 +145,19 @@
                     <option>10%</option>
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="file-select">Upload</label>
+                <input type="file"
+                       class="form-control"
+                        id="file-select"/>
+            </div>
         </form>
 
+        <a class="btn btn-primary btn-block"
+           href="widget-list.view.client.html">Upload Image</a>
         <a class="btn btn-danger btn-block"
-           href="widget-list.html">Delete</a>
+           href="widget-list.view.client.html">Delete</a>
     </div>
 </div>
 
@@ -167,13 +165,10 @@
     <div class="container-fluid">
         <div class="row navbar-text pull-right">
             <div class="col-xs-3 text-center">
-                <a href="../user/profile.html">
+                <a href="../user/profile.view.client.html">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>
     </div>
 </nav>
-
-</body>
-</html>

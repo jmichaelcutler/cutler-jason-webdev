@@ -21,23 +21,47 @@
         return api;
 
         function createPage(websiteId, page) {
-            //TODO
+            page.websiteId = websiteId;
+            page._id = (new Date().getTime() + "");
+            pages.push(page);
+            return page;
         }
 
         function findPageByWebsiteId(websiteId) {
-            //TODO
+            var pageList = [];
+            for (var p in pages) {
+                if (pages[p].websiteId === websiteId) {
+                }
+                {
+                    pageList.push(pages[p]);
+                }
+            }
+            return pageList;
         }
 
         function findPageById(pageId) {
-            //TODO
+            for (var p in pages) {
+                if (pages[p]._id === pageId) {
+                    return pages[pageId];
+                }
+            }
+            return null;
         }
 
         function updatePage(pageId, page) {
-            //TODO
+            for (var p in pages) {
+                if (pages[p]._id === pageId) {
+                    pages[p].name = page.name;
+                    pages[p].websiteId = page.websiteId;
+                    pages[p].description = page.description;
+                }
+            }
         }
 
         function deletePage(pageId) {
-            //TODO
+            var victimPage = findPageById(pageId);
+            var index = pages.indexOf(victimPage);
+            pages.splice(index, 1);
         }
     }
 });

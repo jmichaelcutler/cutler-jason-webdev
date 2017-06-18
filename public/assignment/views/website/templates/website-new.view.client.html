@@ -1,19 +1,19 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="col-sm-4 hidden-xs">
             <div class="navbar-text pull-left">
-                <a href="page-list.view.client.html" class="navbar-link">
+                <a href="website-list.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
-            <div class="navbar-text pull-right">
-                <a href="page-new.view.client.html" class="navbar-link">
+            <div class="navbar-text pull-right" id="left-split-right-margin">
+                <a href="website-new.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    Pages
+                    Websites
                 </a>
             </div>
         </div>
@@ -21,25 +21,26 @@
         <div class="col sm-8">
 
             <div class="navbar-text pull-right">
-                <a href="page-list.view.client.html" class="navbar-link">
+                <a href="website-list.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    Edit Page
+                    New Website
                 </a>
             </div>
         </div>
     </div>
 </nav>
 
+<!-- Content-->
 <div class="container-fluid">
     <div class="col-sm-4 hidden-xs">
         <div class="list-item">
             <div class="col-xs-12">
-                <a href="../widget/widget-list.view.client.html">Blog Post</a>
-                <a href="page-edit.view.client.html">
+                <a href="../../page/templates/page-list.view.client.html">Address Book App</a>
+                <a href="website-edit.view.client.html">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </div>
@@ -47,8 +48,8 @@
 
         <div class="list-item">
             <div class="col-xs-12">
-                <a href="../widget/widget-list.view.client.html">Blogs</a>
-                <a href="page-edit.view.client.html">
+                <a href="../../page/templates/page-list.view.client.html">Blogger</a>
+                <a href="website-edit.view.client.html">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </div>
@@ -56,8 +57,8 @@
 
         <div class="list-item">
             <div class="col-xs-12">
-                <a href="../widget/widget-list.view.client.html">Home</a>
-                <a href="page-edit.view.client.html">
+                <a href="../../page/templates/page-list.view.client.html">Blogging App</a>
+                <a href="website-edit.view.client.html">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </div>
@@ -65,17 +66,8 @@
 
         <div class="list-item">
             <div class="col-xs-12">
-                <a href="../widget/widget-list.view.client.html">About</a>
-                <a href="page-edit.view.client.html">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
-                </a>
-            </div>
-        </div>
-
-        <div class="list-item">
-            <div class="col-xs-12">
-                <a href="../widget/widget-list.view.client.html">Contact Us</a>
-                <a href="page-edit.view.client.html">
+                <a href="../../page/templates/page-list.view.client.html">Script Testing App</a>
+                <a href="website-edit.view.client.html">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </div>
@@ -88,27 +80,24 @@
             <input type="text"
                    class="form-control"
                    id="sitename"
-                   placeholder="Blog Post"/>
+                   placeholder="Blogger"/>
         </div>
 
         <div class="form-group">
-            <label for="description">Title</label>
-            <input type="text"
-                   class="form-control"
-                   id="description"
-                   placeholder="Page Title"/>
+            <label for="description">Description</label>
+            <textarea class="form-control"
+                      placeholder="Description"
+                      rows="5"
+                      id="description"></textarea>
         </div>
-
-        <a class="btn btn-danger btn-block"
-           href="page-list.view.client.html">Delete</a>
     </div>
 </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="row navbar-text pull-right">
             <div class="col-xs-3 text-center">
-                <a href="../user/profile.view.client.html">
+                <a href="../../user/templates/profile.view.client.html">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

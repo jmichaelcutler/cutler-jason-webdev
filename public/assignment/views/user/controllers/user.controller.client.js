@@ -1,9 +1,27 @@
 (function () {
     angular
-        .module('WebAppMaker')
-        .controller('registerController', registerController);
+        .module("WebAppMaker")
+        .controller("LoginController", LoginController)
+        .controller("RegisterController", RegisterController)
+        .controller("ProfileController", ProfileController);
 
-    function registerController($location, userService) {
+    function LoginController($location, userService) {
+        var model = this;
+
+        model.login = login;
+
+        function login(username, password) {
+            var found = userService.findUserByCredentials(username, password);
+
+            if (found !== null) {
+                $location.url('/user/' + found._id);
+            } else {
+                model.message("Sorry, " + username + " not found or password incorrect, please try again!");
+            }
+        }
+    }
+
+    function RegisterController($location, userService) {
         var model = this;
 
         model.register = register;
@@ -33,5 +51,14 @@
                 $location.url('/user/' + newUser._id);
             }
         }
+    }
+
+    function ProfileController($location, $routeParams, userService) {
+
+        var model = this;
+
+        model.userId = $routeParams['userId'];
+
+        model.user = userService.findUserById(model.userId);
     }
 })();

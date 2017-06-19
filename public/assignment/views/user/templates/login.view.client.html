@@ -3,26 +3,28 @@
 
     <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
 
+    <form>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input ng-model="username"
+                   type="text"
+                   class="form-control"
+                   id="username"
+                   placeholder="username"/>
+        </div>
 
-    <label for="username">Username</label>
-    <input ng-model="username"
-           type="text"
-           class="form-control"
-           id="username"
-           placeholder="username"/>
-
-
-    <label for="password">Password</label>
-    <input ng-model="password"
-           type="password"
-           class="form-control"
-           id="password"
-           placeholder="password"/>
-
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input ng-model="password"
+                   type="password"
+                   class="form-control"
+                   id="password"
+                   placeholder="password"/>
+        </div>
+    </form>
 
     <a class="btn btn-primary btn-block"
        href="profile.view.client.html">Login</a>
-
     <a class="btn btn-success btn-block"
        href="register.view.client.html">Register</a>
 </div>

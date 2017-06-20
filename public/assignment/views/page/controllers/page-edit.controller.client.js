@@ -1,3 +1,9 @@
-/**
- * Created by jmich on 6/18/2017.
- */
+(function () {
+    angular
+        .module('WebAppMaker')
+        .controller('EditPageController', EditPageController);
+
+    function EditPageController() {
+        var vm = this;
+    }
+})();

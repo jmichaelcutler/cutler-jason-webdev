@@ -1,12 +1,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="../../website/templates/website-list.view.client.html" class="navbar-link">
+            <a href="/user/{{model.userId}}/website" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
         <div class="navbar-text pull-right">
-            <a href="page-new.view.client.html" class="navbar-link">
+            <a href="/user/{{model.userID}}/website/{{model.websiteId}}/page/new" class="navbar-link">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </div>
@@ -19,7 +19,7 @@
 </nav>
 
 <div class="container-fluid">
-    <div class="list-item">
+    <div class="list-group">
         <div ng-repeate="page in model.pages" class="col-xs-12">
             <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
                 {{page.name}}
@@ -32,11 +32,11 @@
 
 </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="row navbar-text pull-right">
             <div class="col-xs-3 text-center">
-                <a href="../../user/templates/profile.view.client.html">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

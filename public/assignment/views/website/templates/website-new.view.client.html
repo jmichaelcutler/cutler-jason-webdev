@@ -77,7 +77,8 @@
     <div class="col-sm-8">
         <div class="form-group">
             <label for="sitename">Name</label>
-            <input type="text"
+            <input ng-model="website.name"
+                   type="text"
                    class="form-control"
                    id="sitename"
                    placeholder="Blogger"/>
@@ -85,7 +86,8 @@
 
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control"
+            <textarea ng-model="website.description"
+                      class="form-control"
                       placeholder="Description"
                       rows="5"
                       id="description"></textarea>

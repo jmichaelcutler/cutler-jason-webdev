@@ -76,7 +76,8 @@
     <div class="col-sm-8">
         <div class="form-group">
             <label for="sitename">Website Name</label>
-            <input type="text"
+            <input ng-model="website.name"
+                   type="text"
                    class="form-control"
                    id="sitename"
                    placeholder="Blogger"/>
@@ -84,7 +85,8 @@
 
         <div class="form-group">
             <label for="description">Website Description</label>
-            <textarea class="form-control"
+            <textarea ng-model="website.description"
+                      class="form-control"
                       placeholder="Blogger is a blog-publishing service that allows multi-user blogs with time stamped entries.  It was developed by Pyra Labs, which was bough by Gooogle in 2003.  Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com.[4] A user can have up to 100 blogs per account."
                       rows="5"
                       id="description"></textarea>

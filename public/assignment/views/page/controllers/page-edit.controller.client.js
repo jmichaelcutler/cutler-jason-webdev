@@ -3,7 +3,7 @@
         .module('WebAppMaker')
         .controller('EditPageController', EditPageController);
 
-    function EditPageController($routeParams, PageService) {
+    function EditPageController($routeParams, $location, PageService) {
         var vm = this;
         vm.userId = $routeParams.userId;
         vm.websiteId = $routeParams.userId;

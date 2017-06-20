@@ -34,7 +34,6 @@
     </div>
 </nav>
 
-<!-- Content-->
 <div class="container-fluid">
     <div class="col-sm-4 hidden-xs">
         <div class="list-item">
@@ -77,7 +76,7 @@
     <div class="col-sm-8">
         <div class="form-group">
             <label for="sitename">Name</label>
-            <input ng-model="website.name"
+            <input ng-model="model.website.name"
                    type="text"
                    class="form-control"
                    id="sitename"
@@ -86,7 +85,7 @@
 
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea ng-model="website.description"
+            <textarea ng-model="model.website.description"
                       class="form-control"
                       placeholder="Description"
                       rows="5"

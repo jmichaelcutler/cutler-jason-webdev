@@ -9,7 +9,6 @@
         function init() {
             vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
         }
-
         init();
     }
 })();

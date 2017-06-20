@@ -32,39 +32,18 @@
     <script src="./services/widget.service.client.js"></script>
 
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
 
-    <title>Assignment 2 Home Page</title>
+    <title>Assignment 3</title>
 
     <link href="css/style.css" rel="stylesheet"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-
 </head>
+
 <body>
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand">
-                Main Page
-            </a>
-        </div>
-    </div>
-</nav>
-
-<div class="container-fluid">
-    <div class="text-center">
-        <div class="btn-group">
-            <a class="btn btn-primary btn-block"
-               href="views/user/templates/login.view.client.html">Login</a>
-
-            <a class="btn btn-success btn-block"
-               href="views/user/templates/register.view.client.html">Create New User</a>
-
-            <a class="btn btn-danger btn-block"
-               href="http://www.google.com">Exit to Google search</a>
-        </div>
+<div class="container">
+    <div ng-view>
     </div>
 </div>
 </body>

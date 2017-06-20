@@ -10,15 +10,13 @@
             {"_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem"}
         ];
 
-        var api = {
+        return {
             createPage: createPage,
-            findPageByWebsiteId: findPageByWebsiteId,
+            findPagesByWebsiteId: findPagesByWebsiteId,
             findPageById: findPageById,
             updatePage: updatePage,
             deletePage: deletePage
         };
-
-        return api;
 
         function createPage(websiteId, page) {
             page.websiteId = websiteId;
@@ -27,7 +25,7 @@
             return page;
         }
 
-        function findPageByWebsiteId(websiteId) {
+        function findPagesByWebsiteId(websiteId) {
             var pageList = [];
             for (var p in pages) {
                 if (pages[p].websiteId === websiteId) {

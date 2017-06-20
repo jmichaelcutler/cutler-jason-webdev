@@ -8,9 +8,24 @@
 
     function ProfileController($routeParams, UserService) {
         var vm = this;
+        vm.updateUser = updateUser;
         vm.userId = $routeParams["userId"];
+
         function init() {
             vm.user = UserService.findUserById(vm.userId);
         }
+
+        init();
+
+        function updateUser(newUser) {
+            var entry = UserService.updateUser(vm.userId, newUser);
+            if (entry) {
+
+            } else {
+                vm.alert = "Error, user not updated."
+            }
+        }
     }
+
+
 })();

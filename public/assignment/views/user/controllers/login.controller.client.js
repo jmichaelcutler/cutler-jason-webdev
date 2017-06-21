@@ -4,16 +4,16 @@
         .controller("LoginController", LoginController);
 
     function LoginController($location, UserService) {
-        var vm = this;
-        vm.login = login;
+        var model = this;
+        model.login = login;
 
         function login() {
-            var user = UserService.findUserByCredentials(vm.username, vm.password);
+            var user = UserService.findUserByCredentials(model.username, model.password);
 
             if (user) {
                 $location.url("/user/" + user._id);
             } else {
-                vm.message = "Unable to login";
+                model.message = "Unable to login";
             }
         }
     }

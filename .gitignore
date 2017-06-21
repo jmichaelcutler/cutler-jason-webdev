@@ -1,2 +1,8 @@
 node_modules
 .idea
+public/lectures
+public/vendor
+/lectures/
+/public/getPosts/
+/public/js/
+/.gitignore

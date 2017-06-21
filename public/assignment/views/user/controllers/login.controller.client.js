@@ -7,8 +7,8 @@
         var vm = this;
         vm.login = login;
 
-        function login() {
-            var user = UserService.findUserByCredentials(vm.username, vm.password);
+        function login(username, password) {
+            var user = UserService.findUserByCredentials(username, password);
 
             if (user) {
                 $location.url("/user/" + user._id);

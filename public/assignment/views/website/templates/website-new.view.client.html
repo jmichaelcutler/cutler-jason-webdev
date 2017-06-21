@@ -1,26 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <div class="col-sm-4 hidden-xs">
-            <div class="navbar-text pull-left">
-                <a href="#/user/{{model.userId}}" class="navbar-link">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-            </div>
-            <div class="navbar-text pull-right" id="left-split-right-margin">
-                <a href="#/user/{{model.userId}}/website/new" class="navbar-link">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </a>
-            </div>
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    Websites
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col sm-8">
-
         <div class="navbar-text pull-right">
             <a ng-click="model.createWebsite(name, description)" class="navbar-link">
                 <span class="glyphicon glyphicon-ok"></span>
@@ -32,22 +11,9 @@
             </a>
         </div>
     </div>
-    </div>
 </nav>
 
 <div class="container-fluid">
-    <div class="col-sm-4 hidden-xs">
-        <div class="list-group">
-            <div ng-repeat="website in model.websites" class="col-xs-12">
-                <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">{{website.name}}</a>
-                <a href="#/user/{{website.developerId}}/website/{{website._id}}">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-8">
         <div class="form-group">
             <label for="sitename">Name</label>
             <input ng-model="model.website.name"
@@ -65,7 +31,6 @@
                       rows="5"
                       id="description"></textarea>
         </div>
-    </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

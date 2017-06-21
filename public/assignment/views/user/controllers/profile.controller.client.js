@@ -12,16 +12,14 @@
         vm.userId = $routeParams["userId"];
 
         function init() {
-            vm.user = UserService.findUserById(vm.userId);
+            vm.user = angular.copy(UserService.findUserById(vm.userId));
         }
 
         init();
 
         function updateUser(newUser) {
             var entry = UserService.updateUser(vm.userId, newUser);
-            if (entry) {
-
-            } else {
+            if (!entry) {
                 vm.alert = "Error, user not updated."
             }
         }

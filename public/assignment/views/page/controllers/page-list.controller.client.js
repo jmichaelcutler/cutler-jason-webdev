@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("WepAppMaker")
+        .module("WebAppMaker")
         .controller("PageListController", PageListController);
 
     function PageListController($routeParams, PageService) {

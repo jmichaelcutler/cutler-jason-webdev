@@ -62,4 +62,4 @@
             pages.splice(index, 1);
         }
     }
-});
+})();

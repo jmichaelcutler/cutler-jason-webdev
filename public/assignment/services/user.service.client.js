@@ -73,4 +73,4 @@
             users.splice(index, 1);
         }
     }
-});
+})();

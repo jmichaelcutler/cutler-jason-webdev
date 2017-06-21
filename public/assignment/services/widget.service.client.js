@@ -66,4 +66,4 @@
             widgets.splice(index, 1);
         }
     }
-});
+})();

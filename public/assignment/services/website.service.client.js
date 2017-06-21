@@ -66,4 +66,4 @@
             websites.splice(index, 1);
         }
     }
-});
+})();

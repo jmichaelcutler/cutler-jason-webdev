@@ -3,7 +3,7 @@
  */
 (function () {
     angular
-        .module('WebAppMaker')
+        .module("WebAppMaker")
         .controller('ProfileController', ProfileController);
 
     function ProfileController($routeParams, UserService) {

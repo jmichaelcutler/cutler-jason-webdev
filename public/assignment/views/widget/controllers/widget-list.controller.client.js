@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module('WebAppMaker')
-        .controller('WidgetListController', WidgetListController);
+        .module("WebAppMaker")
+        .controller("WidgetListController", WidgetListController);
     function WidgetListController($routeParams, $sce, WidgetService) {
         var vm = this;
         vm.userID = $routeParams.userId;

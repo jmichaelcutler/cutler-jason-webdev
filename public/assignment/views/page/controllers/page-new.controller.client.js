@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module('WebAppMaker')
-        .controller('NewPageController', NewPageController);
+        .module("WebAppMaker")
+        .controller("NewPageController", NewPageController);
 
     function NewPageController($routeParams, $location, PageService) {
         var vm = this;

@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('WebAppMaker')
+        .module("WebAppMaker")
         .controller('EditWebsiteController', EditWebsiteController);
 
     function EditWebsiteController($routeParams, WebsiteService) {

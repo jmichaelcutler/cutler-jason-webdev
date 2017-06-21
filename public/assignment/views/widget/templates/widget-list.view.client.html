@@ -1,12 +1,13 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="../../page/templates/page-list.view.client.html" class="navbar-link">
+            <a href="/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
         <div class="navbar-text pull-right">
-            <a href="widget-choose.view.client.html" class="navbar-link">
+            <a href="/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new"
+               class="navbar-link">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
         </div>
@@ -28,16 +29,27 @@
                 <span class="glyphicon glyphicon-align-justify"></span>
             </div>
         </div>
-        <!--TODO add switch statement-->
+
+        <div ng-switch="widget.widgetType">
+            <div ng-switch-when="HEADING">
+                <ng-include src="'widget-heading.view.client.html'">
+            </div>
+            <div ng-switch-when="IMAGE">
+                <ng-include src="'widget-image.view.client.html'">
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <ng-include src="'widget-youtube.view.client.html'">
+            </div>
+        </div>
 
     </div>
 </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="row navbar-text pull-right">
             <div class="col-xs-3 text-center">
-                <a href="../../user/templates/profile.view.client.html">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

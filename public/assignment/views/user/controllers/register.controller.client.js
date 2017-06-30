@@ -32,7 +32,11 @@
                     .createUser(newUser)
                     .then(function (user) {
                         $location.url("/user/" + user._id);
-                    });
+                    }, createError);
+            }
+
+            function createError(error) {
+                vm.message = "An error occured, user was not created."
             }
         }
     }

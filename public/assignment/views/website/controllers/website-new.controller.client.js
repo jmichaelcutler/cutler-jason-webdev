@@ -11,7 +11,12 @@
         function init() {
             WebsiteService
                 .findWebsitesByUser(vm.userId)
-                .then(vm.websites = websites);
+                .then(function () {
+                    vm.websites = websites
+                }, findWebsiteError);
+            function findWebsiteError(error) {
+                vm.message = "An error has occurred, websites could not be loaded.";
+            }
         }
 
         init();
@@ -26,7 +31,7 @@
                 };
                 WebsiteService
                     .createWebsite(vm.userId, newWebsite)
-                    .then(listWebsite);
+                    .then(listWebsite, createWebsiteError);
 
                 function listWebsite(newSite) {
                     if (newSite !== null) {
@@ -34,6 +39,10 @@
                     } else {
                         vm.message("Website not created")
                     }
+                }
+
+                function createWebsiteError(error) {
+                    vm.message = "An error occurred, could not create website.";
                 }
             }
         }

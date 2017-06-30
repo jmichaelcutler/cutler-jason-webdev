@@ -10,13 +10,28 @@
         vm.createPage = createPage;
 
         function init() {
-            vm.pages = PageService.findPagesByWebsiteId(vm.websiteId);
+            PageService
+                .findPagesByWebsiteId(vm.websiteId)
+                .then(function () {
+                    vm.pages = pages
+                }, findPagesError);
+
+            function findPagesError(error) {
+                vm.message = "An error occurred, pages not found.";
+            }
         }
 
         init();
 
         function createPage() {
-            PageService.createPage(vm.websiteId, vm.page);
+            PageService.createPage(vm.websiteId, vm.page)
+                .then(function () {
+                    $location.url = "/user" + vm.userId + "/website" + vm.websiteId + "/page";
+                }, createError);
+
+            function createError(error) {
+                vm.message = "An error occurred, unable to create page.";
+            }
         }
     }
 })();

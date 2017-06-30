@@ -8,7 +8,15 @@
         vm.userId = $routeParams["userId"];
         vm.websiteId = $routeParams(["websiteId"]);
         function init() {
-            vm.pages = PageService.findPagesByWebsiteId(vm.websiteId);
+            PageService
+                .findPagesByWebsiteId(vm.websiteId)
+                .then(function () {
+                    vm.pages = pages
+                }, findPagesError);
+
+            function findPagesError(error) {
+                vm.message = "An error has occurred, unable to find pages.";
+            }
         }
 
         init();

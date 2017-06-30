@@ -10,26 +10,29 @@
         function register(username, password, password2) {
 
             if (username === null || username === '' || typeof username === 'undefined') {
-                vm.error = 'username is required';
+                vm.error = 'Username is required';
                 return;
             }
 
             if (password !== password2 || password === null || typeof password === 'undefined') {
-                vm.error = "passwords must match";
+                vm.error = "Passwords must match";
                 return;
             }
 
-            var found = UserService.findUserByUsername(username);
+            var found = null;
 
             if (found !== null) {
-                vm.error = "sorry, that username is taken";
+                vm.error = "Sorry, that username is taken";
             } else {
                 var newUser = {
                     username: username,
                     password: password
                 };
-                newUser = vm.createUser(newUser);
-                $location.url('/user/' + newUser._id);
+                UserService
+                    .createUser(newUser)
+                    .then(function (user) {
+                        $location.url("/user/" + user._id);
+                    });
             }
         }
     }

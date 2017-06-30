@@ -36,7 +36,7 @@
             }
 
             function createError(error) {
-                vm.message = "An error occured, user was not created."
+                vm.message = "An error occured, user was not created.";
             }
         }
     }

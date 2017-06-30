@@ -11,19 +11,39 @@
         vm.updatePage = updatePage;
         vm.deletePage = deletePage;
         function init() {
-            vm.page = PageService.findPageById(vm.pageId);
+            PageService.findPageById(vm.pageId)
+                .then(function () {
+                    vm.page = page;
+                }, findPageError);
+
+            function findPageError(error) {
+                vm.message = "An error occurred, unable to find page"
+            }
         }
 
         init();
 
         function updatePage(page) {
-            PageService.updatePage(vm.pageId, page);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+            PageService
+                .updatePage(vm.pageId, page)
+                .then(function () {
+                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+                }, updatePageError);
+
+            function updatePageError(error) {
+                vm.message = "An error occurred, unable to update page";
+            }
         }
 
         function deletePage() {
-            PageService.deletePage(vm.pageId);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+            PageService.deletePage(vm.pageId)
+                .then(function () {
+                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+                }, deletePageError);
+
+            function deletePageError(error) {
+                vm.message = "An error occurred, unable to delete page";
+            }
         }
     }
 })();

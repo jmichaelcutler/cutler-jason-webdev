@@ -11,7 +11,11 @@
                 .findWebsitesByUser(vm.userId)
                 .then(function (websites) {
                     vm.websites = websites;
-                });
+                }, handleError);
+
+            function handleError(error) {
+                vm.message = "An error has occurred, websites cannot be found.";
+            }
         }
         init();
     }

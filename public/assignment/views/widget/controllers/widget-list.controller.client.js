@@ -13,9 +13,17 @@
         vm.getWidgetUrlForType = getWidgetUrlForType;
 
         function init() {
-            vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
+            WidgetService
+                .findWidgetsByPageId(vm.pageId)
+                .then(function () {
+                    vm.widgets = widgets;
+                }, findWidgetError);
         }
         init();
+
+        function findWidgetError(error) {
+            vm.error = "An error occurred, unable to find widgets.";
+        }
 
         function trustHtml(text) {
             return $sce.trustAsHtml(text);
@@ -28,8 +36,7 @@
         function embedYouTube(url) {
             var embedUrl = 'https://www.youtube.com/embed/';
             var youTubeLinkParts = url.split('/');
-            var id = youTubeLinkParts[youTubeLinkParts.length - 1];
-            embedUrl += id;
+            embedUrl += youTubeLinkParts[youTubeLinkParts.length - 1];
             return $sce.trustAsResourceUrl(embedUrl);
         }
 

@@ -3,26 +3,26 @@
         .module("WebAppMaker")
         .controller("WidgetListController", WidgetListController);
     function WidgetListController($routeParams, $sce, WidgetService) {
-        var vm = this;
-        vm.userID = $routeParams.userId;
-        vm.websiteId = $routeParams.websiteId;
-        vm.pageId = $routeParams.pageId;
-        vm.trustHtml = trustHtml;
-        vm.embedYouTube = embedYouTube;
-        vm.trustImage = trustImage;
-        vm.getWidgetUrlForType = getWidgetUrlForType;
+        var model = this;
+        model.userID = $routeParams.userId;
+        model.websiteId = $routeParams.websiteId;
+        model.pageId = $routeParams.pageId;
+        model.trustHtml = trustHtml;
+        model.embedYouTube = embedYouTube;
+        model.trustImage = trustImage;
+        model.getWidgetUrlForType = getWidgetUrlForType;
 
         function init() {
             WidgetService
-                .findWidgetsByPageId(vm.pageId)
+                .findWidgetsByPageId(model.pageId)
                 .then(function () {
-                    vm.widgets = widgets;
+                    model.widgets = widgets;
                 }, findWidgetError);
         }
         init();
 
         function findWidgetError(error) {
-            vm.error = "An error occurred, unable to find widgets.";
+            model.error = "An error occurred, unable to find widgets.";
         }
 
         function trustHtml(text) {

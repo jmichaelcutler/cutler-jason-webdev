@@ -4,18 +4,18 @@
         .controller("PageListController", PageListController);
 
     function PageListController($routeParams, PageService) {
-        var vm = this;
-        vm.userId = $routeParams["userId"];
-        vm.websiteId = $routeParams(["websiteId"]);
+        var model = this;
+        model.userId = $routeParams["userId"];
+        model.websiteId = $routeParams(["websiteId"]);
         function init() {
             PageService
-                .findPagesByWebsiteId(vm.websiteId)
+                .findPagesByWebsiteId(model.websiteId)
                 .then(function () {
-                    vm.pages = pages
+                    model.pages = pages
                 }, findPagesError);
 
             function findPagesError(error) {
-                vm.message = "An error has occurred, unable to find pages.";
+                model.message = "An error has occurred, unable to find pages.";
             }
         }
 

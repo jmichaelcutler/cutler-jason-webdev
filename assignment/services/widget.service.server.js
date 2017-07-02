@@ -1,10 +1,10 @@
 var app = require("../../express");
 
-app.post("/api/page/:pageId/widget", createWidget);
-app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
-app.get("/api/widget/:widgetId", findWidgetById);
-app.put("/api/widget/:widgetId", updateWidget);
-app.delete("/api/widget/:widgetId", deleteWidget);
+app.post("/api/assignment/page/:pageId/widget", createWidget);
+app.get("/api/assignment/page/:pageId/widget", findAllWidgetsForPage);
+app.get("/api/assignment/widget/:widgetId", findWidgetById);
+app.put("/api/assignment/widget/:widgetId", updateWidget);
+app.delete("/api/assignment/widget/:widgetId", deleteWidget);
 
 function createWidget(req, res) {
     var pageId = req.params["pageId"];

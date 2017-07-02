@@ -4,18 +4,18 @@
         .controller("NewWebsiteController", NewWebsiteController);
 
     function NewWebsiteController($location, $routeParams, WebsiteService) {
-        var vm = this;
-        vm.userId = $routeParams["userId"];
-        vm.createWebsite = createWebsite;
+        var model = this;
+        model.userId = $routeParams["userId"];
+        model.createWebsite = createWebsite;
 
         function init() {
             WebsiteService
-                .findWebsitesByUser(vm.userId)
+                .findWebsitesByUser(model.userId)
                 .then(function () {
-                    vm.websites = websites
+                    model.websites = websites
                 }, findWebsiteError);
             function findWebsiteError(error) {
-                vm.message = "An error has occurred, websites could not be loaded.";
+                model.message = "An error has occurred, websites could not be loaded.";
             }
         }
 
@@ -23,26 +23,26 @@
 
         function createWebsite(name, description) {
             if (!name) {
-                vm.alert = "Website name cannot be null!"
+                model.alert = "Website name cannot be null!"
             } else {
                 var newWebsite = {
                     name: name,
                     description: description
                 };
                 WebsiteService
-                    .createWebsite(vm.userId, newWebsite)
+                    .createWebsite(model.userId, newWebsite)
                     .then(listWebsite, createWebsiteError);
 
                 function listWebsite(newSite) {
                     if (newSite !== null) {
-                        $location.url = "/user/" + vm.userId + "website";
+                        $location.url = "/user/" + model.userId + "website";
                     } else {
-                        vm.message("Website not created")
+                        model.message("Website not created")
                     }
                 }
 
                 function createWebsiteError(error) {
-                    vm.message = "An error occurred, could not create website.";
+                    model.message = "An error occurred, could not create website.";
                 }
             }
         }

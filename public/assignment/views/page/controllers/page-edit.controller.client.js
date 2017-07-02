@@ -4,20 +4,20 @@
         .controller("EditPageController", EditPageController);
 
     function EditPageController($routeParams, $location, PageService) {
-        var vm = this;
-        vm.userId = $routeParams.userId;
-        vm.websiteId = $routeParams.userId;
-        vm.pageId = $routeParams["pageId"];
-        vm.updatePage = updatePage;
-        vm.deletePage = deletePage;
+        var model = this;
+        model.userId = $routeParams.userId;
+        model.websiteId = $routeParams.userId;
+        model.pageId = $routeParams["pageId"];
+        model.updatePage = updatePage;
+        model.deletePage = deletePage;
         function init() {
-            PageService.findPageById(vm.pageId)
+            PageService.findPageById(model.pageId)
                 .then(function () {
-                    vm.page = page;
+                    model.page = page;
                 }, findPageError);
 
             function findPageError(error) {
-                vm.message = "An error occurred, unable to find page"
+                model.message = "An error occurred, unable to find page"
             }
         }
 
@@ -25,24 +25,24 @@
 
         function updatePage(page) {
             PageService
-                .updatePage(vm.pageId, page)
+                .updatePage(model.pageId, page)
                 .then(function () {
-                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page');
                 }, updatePageError);
 
             function updatePageError(error) {
-                vm.message = "An error occurred, unable to update page";
+                model.message = "An error occurred, unable to update page";
             }
         }
 
         function deletePage() {
-            PageService.deletePage(vm.pageId)
+            PageService.deletePage(model.pageId)
                 .then(function () {
-                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page');
                 }, deletePageError);
 
             function deletePageError(error) {
-                vm.message = "An error occurred, unable to delete page";
+                model.message = "An error occurred, unable to delete page";
             }
         }
     }

@@ -4,17 +4,17 @@
         .controller("WebsiteListController", WebsiteListController);
 
     function WebsiteListController($routeParams, WebsiteService) {
-        var vm = this;
-        vm.userId = $routeParams["userId"];
+        var model = this;
+        model.userId = $routeParams["userId"];
         function init() {
             WebsiteService
-                .findWebsitesByUser(vm.userId)
+                .findWebsitesByUser(model.userId)
                 .then(function (websites) {
-                    vm.websites = websites;
+                    model.websites = websites;
                 }, handleError);
 
             function handleError(error) {
-                vm.message = "An error has occurred, websites cannot be found.";
+                model.message = "An error has occurred, websites cannot be found.";
             }
         }
         init();

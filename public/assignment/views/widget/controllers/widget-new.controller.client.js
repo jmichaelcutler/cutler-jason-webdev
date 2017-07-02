@@ -5,45 +5,45 @@
 
     function NewWidgetController($location, WidgetService, $routeParams) {
 
-        var vm = this;
-        vm.userId = $routeParams["userId"];
-        vm.websiteId = $routeParams["websiteId"];
-        vm.pageId = $routeParams["pageId"];
-        vm.widgetType = $routeParams["widgetType"];
-        vm.createWidget = createWidget;
+        var model = this;
+        model.userId = $routeParams["userId"];
+        model.websiteId = $routeParams["websiteId"];
+        model.pageId = $routeParams["pageId"];
+        model.widgetType = $routeParams["widgetType"];
+        model.createWidget = createWidget;
 
         function createWidget() {
-            vm.message = null;
-            vm.error = null;
-            if (vm.currentWidget === null || typeof vm.currentWidget === 'undefined' || vm.currentWidget === '') {
-                vm.currentWidget = {
-                    widgetType: vm.widgetType
+            model.message = null;
+            model.error = null;
+            if (model.currentWidget === null || typeof model.currentWidget === 'undefined' || model.currentWidget === '') {
+                model.currentWidget = {
+                    widgetType: model.widgetType
                 };
             }
-            vm.currentWidget.widgetType = vm.widgetType;
-            if ((vm.currentWidget.widgetType === 'HEADING' || vm.currentWidget.widgetType === 'HTML') && (vm.currentWidget.text === null || typeof vm.currentWidget.text === 'undefined' || vm.currentWidget.text === '')) {
-                vm.error = "Text cannot be null for headings or HTML";
+            model.currentWidget.widgetType = model.widgetType;
+            if ((model.currentWidget.widgetType === 'HEADING' || model.currentWidget.widgetType === 'HTML') && (model.currentWidget.text === null || typeof model.currentWidget.text === 'undefined' || model.currentWidget.text === '')) {
+                model.error = "Text cannot be null for headings or HTML";
                 $anchorScroll('top');
                 return;
             }
-            else if ((vm.currentWidget.widgetType === 'IMAGE' || vm.currentWidget.widgetType === 'YOUTUBE') && (vm.currentWidget.url === null || typeof vm.currentWidget.url === 'undefined' || vm.currentWidget.url === '')) {
-                vm.error = "Invalid URL";
+            else if ((model.currentWidget.widgetType === 'IMAGE' || model.currentWidget.widgetType === 'YOUTUBE') && (model.currentWidget.url === null || typeof model.currentWidget.url === 'undefined' || model.currentWidget.url === '')) {
+                model.error = "Invalid URL";
                 $anchorScroll('top');
                 return;
             }
-            if (vm.currentWidget.widgetType === 'HEADING' && typeof vm.currentWidget.size === 'undefined') {
-                vm.error = "Size for heading must be valid";
+            if (model.currentWidget.widgetType === 'HEADING' && typeof model.currentWidget.size === 'undefined') {
+                model.error = "Size for heading must be valid";
                 $anchorScroll('top');
                 return;
             }
-            WidgetService.createWidget(vm.pageId, vm.currentWidget)
+            WidgetService.createWidget(model.pageId, model.currentWidget)
                 .then(function () {
-                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
                 }, createWidgetError);
         }
 
         function createWidgetError(error) {
-            vm.error = "An error occurred, widget was not created.";
+            model.error = "An error occurred, widget was not created.";
         }
     }
 })();

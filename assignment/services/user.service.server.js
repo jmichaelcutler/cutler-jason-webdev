@@ -1,11 +1,11 @@
 var app = require("../../express.js");
 
-app.post("/api/user", createUser);
-app.get("/api/user?username=username", findUserByUsername);
-app.get("/api/user?username=username&password=password", findUserByCredentials);
-app.get("/api/user/:userId", findUserById);
-app.put("/api/user/:userId", updateUser);
-app.delete("/api/user/:userId", deleteUser);
+app.post("/api/assignment/user", createUser);
+app.get("/api/assignment/user?username=username", findUserByUsername);
+app.get("/api/assignment/user?username=username&password=password", findUserByCredentials);
+app.get("/api/assignment/user/:userId", findUserById);
+app.put("/api/assignment/user/:userId", updateUser);
+app.delete("/api/assignment/user/:userId", deleteUser);
 
 var users = [
     {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},

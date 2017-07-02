@@ -7,9 +7,9 @@
         .controller('ProfileController', ProfileController);
 
     function ProfileController($location, $routeParams, UserService) {
-        var vm = this;
-        vm.updateUser = updateUser;
-        vm.deleteUser = deleteUser;
+        var model = this;
+        model.updateUser = updateUser;
+        model.deleteUser = deleteUser;
         var userId = $routeParams["userId"];
 
         UserService
@@ -17,7 +17,7 @@
             .then(renderUser, handleError);
 
         function renderUser(response) {
-            vm.user = response.data;
+            model.user = response.data;
         }
 
         function deleteUser(user) {
@@ -29,19 +29,19 @@
         }
 
         function deleteError(error) {
-            vm.message = "An error occured, user not deleted."
+            model.message = "An error occured, user not deleted."
         }
 
         function updateUser(user) {
             UserService
                 .updateUser(user._id, user)
                 .then(function () {
-                    vm.message = "User updated successfully";
+                    model.message = "User updated successfully";
                 }, updateError);
         }
 
         function updateError(error) {
-            vm.message = "An error occurred, user was not updated."
+            model.message = "An error occurred, user was not updated."
         }
     }
 

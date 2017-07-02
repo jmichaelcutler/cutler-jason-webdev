@@ -4,33 +4,33 @@
         .controller("NewPageController", NewPageController);
 
     function NewPageController($routeParams, $location, PageService) {
-        var vm = this;
-        vm.userId = $routeParams["userId"];
-        vm.websiteId = $routeParams["websiteId"];
-        vm.createPage = createPage;
+        var model = this;
+        model.userId = $routeParams["userId"];
+        model.websiteId = $routeParams["websiteId"];
+        model.createPage = createPage;
 
         function init() {
             PageService
-                .findPagesByWebsiteId(vm.websiteId)
+                .findPagesByWebsiteId(model.websiteId)
                 .then(function () {
-                    vm.pages = pages
+                    model.pages = pages
                 }, findPagesError);
 
             function findPagesError(error) {
-                vm.message = "An error occurred, pages not found.";
+                model.message = "An error occurred, pages not found.";
             }
         }
 
         init();
 
         function createPage() {
-            PageService.createPage(vm.websiteId, vm.page)
+            PageService.createPage(model.websiteId, model.page)
                 .then(function () {
-                    $location.url = "/user" + vm.userId + "/website" + vm.websiteId + "/page";
+                    $location.url = "/user" + model.userId + "/website" + model.websiteId + "/page";
                 }, createError);
 
             function createError(error) {
-                vm.message = "An error occurred, unable to create page.";
+                model.message = "An error occurred, unable to create page.";
             }
         }
     }

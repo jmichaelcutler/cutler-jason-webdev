@@ -4,53 +4,53 @@
         .controller('EditWebsiteController', EditWebsiteController);
 
     function EditWebsiteController($routeParams, WebsiteService) {
-        var vm = this;
-        vm.websiteId = $routeParams["websiteId"];
-        vm.updateWebsite = updateWebsite;
-        vm.deleteWebsite = deleteWebsite;
+        var model = this;
+        model.websiteId = $routeParams["websiteId"];
+        model.updateWebsite = updateWebsite;
+        model.deleteWebsite = deleteWebsite;
 
         function init() {
             WebsiteService
-                .findWebsiteById(vm.websiteId)
+                .findWebsiteById(model.websiteId)
                 .then(function () {
-                    vm.websites = websites
+                    model.websites = websites
                 }, findWebsiteError);
 
             function findWebsiteError(error) {
-                vm.message = "An error occurred, could not find website"
+                model.message = "An error occurred, could not find website"
             }
 
-            // vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            // model.website = WebsiteService.findWebsiteById(model.websiteId);
         }
 
         init();
 
         function updateWebsite(website) {
             WebsiteService
-                .updateWebsite(vm.websiteId, website)
+                .updateWebsite(model.websiteId, website)
                 .then(function () {
-                    $location.url = "/user/" + vm.userId + "/website"
+                    $location.url = "/user/" + model.userId + "/website"
                 }, updateWebsiteError);
 
             function updateWebsiteError(error) {
-                vm.message = "An error occurred, could not update website.";
+                model.message = "An error occurred, could not update website.";
             }
 
-            // WebsiteService.updateWebsite(vm.websiteId, website);
+            // WebsiteService.updateWebsite(model.websiteId, website);
         }
 
         function deleteWebsite() {
             WebsiteService
-                .deleteWebsite(vm.websiteId)
+                .deleteWebsite(model.websiteId)
                 .then(function () {
-                    location.url = "/user/" + vm.userId + "/website"
+                    location.url = "/user/" + model.userId + "/website"
                 }, deleteError);
 
             function deleteError(error) {
-                vm.message = "An error occurred, could not delete website.";
+                model.message = "An error occurred, could not delete website.";
             }
 
-            // WebsiteService.deleteWebsite(vm.websiteId);
+            // WebsiteService.deleteWebsite(model.websiteId);
         }
     }
 })();

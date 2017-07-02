@@ -1,7 +1,7 @@
 var app = require("../../express");
 
 var multer = require('multer'); // npm install multer --save
-var upload = multer({dest: __dirname + '/../../public/uploads'});
+var upload = multer({dest: __dirname + '/../../public/assignment/uploads'});
 
 app.post("/api/assignment/page/:pageId/widget", createWidget);
 app.get("/api/assignment/page/:pageId/widget", findAllWidgetsForPage);

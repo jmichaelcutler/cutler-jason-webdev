@@ -4,13 +4,26 @@
         .directive("wdSortable", sortWidget);
 
     function sortWidget($http) {
-        //TODO
         return {
             link: linkFunction
         };
 
         function linkFunction(scope, element, attrs) {
-            $(element).sortable();
+            $(element).sortable({
+                start: function (event, ui) {
+                    scope.error = null;
+                    ui.item.startPos = ui.item.index();
+                },
+                update: function (event, ui) {
+                    url = "/api/assignment/page/" + attrs.pageId + "/widget?initial=" + ui.item.startPos + "&final=" + ui.item.index();
+                    $http.put(url)
+                        .then(function () {
+                        }, function () {
+                            scope.error = "An error has occurred, no changes made";
+                            $(element).sortable("cancel");
+                        })
+                }
+            });
         }
     }
 

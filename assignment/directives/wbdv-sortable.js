@@ -15,7 +15,7 @@
                     ui.item.startPos = ui.item.index();
                 },
                 update: function (event, ui) {
-                    url = "/api/assignment/page/" + attrs.pageId + "/widget?initial=" + ui.item.startPos + "&final=" + ui.item.index();
+                    var url = "/api/assignment/page/" + attrs.pageId + "/widget?initial=" + ui.item.startPos + "&final=" + ui.item.index();
                     $http.put(url)
                         .then(function () {
                         }, function () {

@@ -4,14 +4,13 @@
         .factory("WidgetService", WidgetService);
 
     function WidgetService($http) {
-
-
         return {
             createWidget: createWidget,
             findWidgetsByPageId: findWidgetsByPageId,
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
-            deleteWidget: deleteWidget
+            deleteWidget: deleteWidget,
+            uploadImage: uploadImage
         };
 
         function createWidget(pageId, widget) {
@@ -52,6 +51,17 @@
                 .then(function (response) {
                     return response.data;
                 });
+        }
+
+        function uploadImage() {
+            var url = "/api/assignment/upload";
+            return $http.post(url, form, {
+                transformRequest: angular.identity,
+                headers: {"Content-Type": undefined}
+            })
+                .then(function (response) {
+                    return response.data;
+                })
         }
     }
 })();

@@ -11,6 +11,7 @@
         model.pageId = $routeParams["pageId"];
         model.widgetType = $routeParams["widgetType"];
         model.createWidget = createWidget;
+        model.uploadImage = uploadImage;
 
         function createWidget() {
             model.message = null;
@@ -44,6 +45,23 @@
 
         function createWidgetError(error) {
             model.error = "An error occurred, widget was not created.";
+        }
+
+        function uploadImage() {
+            var file = document.getElementById("upload").files[0];
+            var form = new FormData();
+            form.append("uploadFile", file);
+            WidgetService
+                .uploadImage(form)
+                .then(function (text) {
+                    model.currentWidget.url = text;
+                    model.message = "Image uploaded";
+                    document.getElementById("upload").value = null;
+                }, uploadImageError);
+
+            function uploadImageError(error) {
+                model.message = "An error occurred, image not uploaded";
+            }
         }
     }
 })();

@@ -2,7 +2,7 @@
 <form>
     <div class="form-group">
         <label for="widget-name">Name</label>
-        <input ng-model="model.widget.name"
+        <input ng-model="model.currentWidget.name"
                type="text"
                class="form-control"
                id="widget-name"
@@ -11,7 +11,7 @@
 
     <div class="form-group">
         <label for="widget-text">Text</label>
-        <input ng-model="model.widget.text"
+        <input ng-model="model.currentWidget.text"
                type="text"
                class="form-control"
                id="widget-text"
@@ -20,7 +20,7 @@
 
     <div class="form-group">
         <label for="image-url">URL</label>
-        <input ng-model="model.widget.url"
+        <input ng-model="model.currentWidget.url"
                type="text"
                class="form-control"
                id="image-url"
@@ -34,26 +34,30 @@
             <option>100%</option>
             <option>90%</option>
             <option>80%</option>
+            <option>75%</option>
             <option>70%</option>
             <option>60%</option>
             <option>50%</option>
             <option>40%</option>
             <option>30%</option>
+            <option>25%</option>
             <option>20%</option>
             <option>10%</option>
         </select>
     </div>
 
-    <div class="form-group">
-        <label for="file-select">Upload</label>
-        <input type="file"
-               class="form-control"
-               id="file-select"/>
-    </div>
+    <form action="/api/assignment/upload" method="post" enctype="multipart/form-data">
+        <input name="myFile" type="file" class="form-control"/>
+        <input name="width" value="{{model.widget.width}}" style="display: none"/>
+        <input name="userId" value="{{model.userId}}" style="display: none"/>
+        <input name="websiteId" value="{{model.websiteId}}" style="display: none"/>
+        <input name="pageId" value="{{model.pageId}}" style="display: none"/>
+        <input name="widgetId" value="{{model.widget._id}}" style="display: none"/>
+        <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+    </form>
+
 </form>
 
-<a class="btn btn-primary btn-block"
-   href="../templates/widget-list.view.client.html">Upload Image</a>
 <a class="btn btn-danger btn-block"
-   ng-click="model.deleteWidget">Delete</a>
+   ng-click="model.deleteWidget()">Delete</a>
 </div>

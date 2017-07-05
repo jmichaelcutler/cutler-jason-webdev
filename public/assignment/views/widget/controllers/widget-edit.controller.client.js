@@ -12,6 +12,7 @@
         var baseURL = "/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget";
         model.deleteWidget = deleteWidget;
         model.updateWidget = updateWidget;
+        model.uploadImage = uploadImage;
 
         function init() {
             WidgetService
@@ -58,6 +59,23 @@
 
         function updateWidgetError(error) {
             model.error = "An error occurred, widget not updated.";
+        }
+
+        function uploadImage() {
+            var file = document.getElementById('upload').files[0];
+            var form = new FormData();
+            form.append("uploadFile", file);
+            WidgetService
+                .uploadImage(form)
+                .then(function (text) {
+                    model.currentWidget.url = text;
+                    model.message = "Image uploaded.";
+                    document.getElementById("upload").value = null;
+                }, uploadImageError);
+
+            function uploadImageError(error) {
+                model.error = "An error occurred, image not uploaded.";
+            }
         }
     }
 })();

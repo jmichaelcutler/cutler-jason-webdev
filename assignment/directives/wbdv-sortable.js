@@ -1,7 +1,7 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .directive("wdSortable", sortWidget);
+        .directive("wbdvDirectives", sortWidget);
 
     function sortWidget($http) {
         return {

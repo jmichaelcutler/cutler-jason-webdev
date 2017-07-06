@@ -18,6 +18,7 @@ function createUser(req, res) {
     var user = req.body;
     user._id = (new Date().getTime() + "");
     users.push(user);
+    console.log(users);
     res.json(user);
 }
 

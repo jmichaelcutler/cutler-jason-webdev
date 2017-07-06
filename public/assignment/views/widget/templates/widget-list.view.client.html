@@ -20,6 +20,10 @@
         </div>
     </nav>
 
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
     <ul wbdv-sortable page-id="{{model.pageId}}">
         <li ng-repeat="widget in model.widgets">
             <div class="wd-widget">

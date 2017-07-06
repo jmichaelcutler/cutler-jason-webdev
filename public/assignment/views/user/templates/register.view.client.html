@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <h1>Register</h1>
 
-    <form ng-submit="model.createUser()">
+    <form ng-submit="model.register">
         <div class="form-group">
             <label for="username">Username:</label>
             <input ng-model="model.user.username"
@@ -30,32 +30,6 @@
                    placeholder="Verifyy password"/>
         </div>
 
-        <div class=" form-group">
-            <label for="firstName">First Name</label>
-            <input ng-model="model.user.firstName"
-                   type="text"
-                   id="firstName"
-                   class="form-control"
-                   placeholder="First name"/>
-        </div>
-
-        <div class=" form-group">
-            <label for="lastName">Last Name</label>
-            <input ng-model="model.user.lastName"
-                   type="text"
-                   id="lastName"
-                   class="form-control"
-                   placeholder="Last name"/>
-        </div>
-
-        <div class=" form-group">
-            <label for="email">Email</label>
-            <input ng-model="model.user.email"
-                   type="text"
-                   id="email"
-                   class="form-control"
-                   placeholder="Email"/>
-        </div>
         <button type="submit"
                 class="btn btn-primary btn-block"
         >Register

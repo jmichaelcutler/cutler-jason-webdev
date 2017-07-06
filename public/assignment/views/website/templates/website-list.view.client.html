@@ -1,43 +1,45 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-text pull-left">
-            <a href="#/user/{{model.userId}}" class="navbar-link">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-        </div>
-        <div class="navbar-text pull-right" id="left-split-right-margin">
-            <a href="#/user/{{model.userId}}/website/new" class="navbar-link">
-                <span class="glyphicon glyphicon-plus"></span>
-            </a>
-        </div>
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Websites
-            </a>
-        </div>
-    </div>
-</nav>
-
 <div class="container-fluid">
-    <div class="list-group">
-        <div ng-repeat="website in model.websites" class="col-xs-12">
-            <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">{{website.name}}</a>
-            <a href="#/user/{{website.developerId}}/website/{{website._id}}">
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </div>
-    </div>
-
-</div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="row navbar-text pull-right">
-            <div class="col-xs-3 text-center">
-                <a href="#/user/{{model.userId}}">
-                    <span class="glyphicon glyphicon-user"></span>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right" id="left-split-right-margin">
+                <a href="#/user/{{model.userId}}/website/new" class="navbar-link">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Websites
                 </a>
             </div>
         </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="list-group">
+            <div ng-repeat="website in model.websites" class="col-xs-12">
+                <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">{{website.name}}</a>
+                <a href="#/user/{{website.developerId}}/website/{{website._id}}">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+            </div>
+        </div>
+
     </div>
-</nav>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="row navbar-text pull-right">
+                <div class="col-xs-3 text-center">
+                    <a href="#/user/{{model.userId}}">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

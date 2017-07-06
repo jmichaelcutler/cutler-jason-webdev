@@ -1,8 +1,8 @@
 var app = require("../../express.js");
 
 app.post("/api/assignment/user", createUser);
-app.get("/api/assignment/user?username=username", findUserByUsername);
-app.get("/api/assignment/user?username=username&password=password", findUserByCredentials);
+app.get("/api/assignment/user?username", findUserByUsername);
+app.get("/api/assignment/user?", findUserByCredentials);
 app.get("/api/assignment/user/:userId", findUserById);
 app.put("/api/assignment/user/:userId", updateUser);
 app.delete("/api/assignment/user/:userId", deleteUser);
@@ -23,7 +23,7 @@ function createUser(req, res) {
 }
 
 function findUserByUsername(req, res) {
-    var username = req.body.username;
+    var username = req.query["username"];
     for (var userId in users) {
         if (users[userId].username === username) {
             res.send(users[userId]);
@@ -33,8 +33,8 @@ function findUserByUsername(req, res) {
 }
 
 function findUserByCredentials(req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
+    var username = req.query["username"];
+    var password = req.query["password"];
     for (var userId in users) {
         if (users[userId].username === username &&
             users[userId].password === password) {

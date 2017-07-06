@@ -59,4 +59,5 @@ function deletePage(req, res) {
     var victimPage = req.body;
     var index = pages.indexOf(victimPage);
     pages.splice(index, 1);
+    res.sendStatus(200);
 }

@@ -5,9 +5,9 @@
 
     function LoginController($location, UserService) {
         var model = this;
-        model.login = function (username, password) {
+        model.login = function () {
             UserService
-                .findUserByCredentials(username, password)
+                .findUserByCredentials(model.username, model.password)
                 .then(login, handleError);
 
             function handleError(error) {

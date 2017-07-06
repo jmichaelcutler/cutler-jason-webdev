@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="col-sm-4 hidden-xs">
             <div class="navbar-text pull-left">
-                <a href="/user/{{model.userId}}/website" class="navbar-link">
+                <a href="/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -49,23 +49,34 @@
     </div>
 
     <div class="col-sm-8">
-        <div class="form-group">
-            <label for="sitename">Name</label>
-            <input ng-model="model.page.name"
-                   type="text"
-                   class="form-control"
-                   id="sitename"
-                   placeholder="Page Name"/>
-        </div>
+        <form ng-submit="model.updatePage">
+            <div ng-show="model.error" class="alert alert-danger">
+                {{model.error}}
+            </div>
 
-        <div class="form-group">
-            <label for="description">Title</label>
-            <input ng-model="model.page.description"
-                   type="text"
-                   class="form-control"
-                   id="description"
-                   placeholder="Page Title"/>
-        </div>
+            <div class="form-group">
+                <label for="sitename">Name</label>
+                <input ng-model="model.page.name"
+                       type="text"
+                       class="form-control"
+                       id="sitename"
+                       placeholder="Page Name"/>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Title</label>
+                <input ng-model="model.page.description"
+                       type="text"
+                       class="form-control"
+                       id="description"
+                       placeholder="Page Title"/>
+            </div>
+
+            <div class="form-group">
+                <a href ng-click="model.deletePage" class="btn btn-lg btn-block"
+                   type="submit">Delete</a>
+            </div>
+        </form>
     </div>
 </div>
 

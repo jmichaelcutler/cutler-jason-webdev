@@ -6,3 +6,4 @@ public/vendor
 /public/getPosts/
 /public/js/
 /.gitignore
+/public/assignment/uploads/*

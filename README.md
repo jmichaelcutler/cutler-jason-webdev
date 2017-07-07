@@ -33,8 +33,5 @@ and registered users to create playlists and reviews of songs.
 * Artist
 	1) Able to perform CRUD operations on songs
   
-  
-  ## Links
-* [Application](https://polar-sea-82088.herokuapp.com/)
-* [Assignment](https://polar-sea-82088.herokuapp.com/assignment/index.html)
-* [Project](https://polar-sea-82088.herokuapp.com/project/index.html)
+  ### Data Model
+  ![Project Data Model](public/project/webdev_project_data_model.jpg)

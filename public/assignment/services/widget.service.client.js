@@ -10,7 +10,8 @@
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
             deleteWidget: deleteWidget,
-            uploadImage: uploadImage
+            uploadImage: uploadImage,
+            sortWidget: reorderWidget
         };
 
         function createWidget(pageId, widget) {
@@ -46,7 +47,7 @@
         }
 
         function deleteWidget(widgetId) {
-            var url = "/api/wassignment/idget/" + widgetId;
+            var url = "/api/assignment/widget/" + widgetId;
             return $http.delete(url)
                 .then(function (response) {
                     return response.data;
@@ -59,6 +60,14 @@
                 transformRequest: angular.identity,
                 headers: {"Content-Type": undefined}
             })
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+        function reorderWidget(pageId, start, end) {
+            var url = "/api/assignment/page/" + pageId + "/widget?start=" + start + "&end=" + end;
+            return $http.put(url)
                 .then(function (response) {
                     return response.data;
                 })

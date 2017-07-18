@@ -13,10 +13,6 @@ widgetModel.reorderWidget = reorderWidget;
 
 module.exports(widgetModel);
 
-Array.prototype.move(function (initial, final) {
-    this
-});
-
 function createWidget(pageId, widget) {
     widget._page = pageId;
     return widgetModel.create(widget);

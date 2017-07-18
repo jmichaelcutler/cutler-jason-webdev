@@ -10,7 +10,7 @@ app.get("/api/assignment/widget/:widgetId", findWidgetById);
 app.put("/api/assignment/widget/:widgetId", updateWidget);
 app.delete("/api/assignment/widget/:widgetId", deleteWidget);
 app.post("/api/assignment/upload", upload.single('myFile'), uploadImage);
-app.put("/api/assignment/page/:pageId/widget", sortWidgets);
+app.put("/api/assignment/page/:pageId/widget", reorderWidgets);
 
 function createWidget(req, res) {
     var pageId = req.params["pageId"];
@@ -87,24 +87,15 @@ function uploadImage(req, res) {
     res.redirect(callbackUrl);
 }
 
-function sortWidgets(req, res) {
-    try {
-        var pageId = req.params["pageId"];
-        var resultArray = [];
-        var initial = req.query["initial"];
-        var final = req.query["final"];
-        for (var p in pages) {
-            if (pages[p].pageId === pageId) {
-                resultArray.push(pages[p]);
-            }
-        }
-        var initialWidgetIndex = widgets.indexOf(resultArray[initial]);
-        var finalWidgetIndex = widgets.indexOf(resultArray[final]);
-        widgets.splice(finalWidgetIndex, 0, widgets.splice(initialWidgetIndex, 1)[0]);
-        res.sendStatus(200);
-    } catch (err) {
-        res.sendStatus(404);
-    }
+function reorderWidgets(req, res) {
+    var pageId = req.params["pageId"];
+    var start = req.params.start;
+    var end = req.params.end;
+    widgetModel
+        .reorderWidget(pageId, start, end)
+        .then(function (widgets) {
+            res.sendStatus(200);
+        });
 }
 
 function widgetError(err, res) {

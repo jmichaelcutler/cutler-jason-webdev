@@ -60,7 +60,7 @@ function deleteWebsite(req, res) {
         .deleteWebsite(websiteId)
         .then(function (status) {
             res.sendStatus(status);
-        })
+        });
 }
 
 function websiteError(err, res) {

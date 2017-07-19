@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form id="form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" ng-model="model.currentWidget.name" id="name" class="form-control"
+                       placeholder="Name"
+                       data-toggle="tooltip"
+                       title="Enter widget name">
+            </div>
+            <div class="form-group">
+                <label for="text">Text</label>
+                <input type="text" ng-model="model.currentWidget.text" id="text" class="form-control"
+                       placeholder="Name"
+                       data-toggle="tooltip"
+                       title="Enter widget text">
+            </div>
+            <div class="form-group">
+                <label for="rows">Rows</label>
+                <input type="number" ng-model="model.currentWidget.rows" id="rows" class="form-control"
+                       placeholder="1"
+                       title="Enter number of widget rows">
+            </div>
+            <div class="form-group">
+                <label for="placeholder">Placeholder</label>
+                <input type="text"
+                       ng-model="model.currentWidget.placeholder"
+                       id="placeholder"
+                       class="form-control"
+                       placeholder="Placeholder"
+                       title="Enter placeholder for widget">
+            </div>
+            <div class="form-group">
+                <label for="formatted">Formatted</label>
+                <input type="checkbox" ng-model="model.currentWidget.formatted"
+                       id="formatted"
+                       title="Check box if text is formatted"
+                       value="true">
+            </div>
+            <div class="form-group ">
+                <a href ng-click="model.deleteWidget()" class="btn btn-danger btn-block"
+                   type="submit">Delete</a>
+            </div>
+        </form>
+    </div>
+</div>

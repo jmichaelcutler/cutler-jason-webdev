@@ -80,7 +80,7 @@ function uploadImage(req, res) {
     var mimetype = myFile.mimetype;
 
     var widget = findWidgetById(widgetId).body;
-    widget.url = '/uploads/' + filename;
+    widget.url += '/uploads/' + filename;
 
     var callbackUrl = "/assignment/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
 

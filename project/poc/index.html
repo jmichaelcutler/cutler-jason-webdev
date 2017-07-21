@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="projectPocApp">
+<head>
+    <script src="../../vendor/angular.min.js"></script>
+
+    <!--Bootstrap-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="app.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid" ng-controller="pocController as model">
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>POC Album Search by Artist</h2>
+            <input ng_model="model.artist"
+                   class="form-control"
+                   placeholder="Enter artist name">
+            <button class="btn btn-primary btn-block"
+                    ng-click="model.findAlbumsByArtist(model.artist)">Search
+            </button>
+            <h3>Search Results</h3>
+            <ul class="list-group">
+                <li ng-click="model.getAlbumDetails(album.resource_url)" ng-repeat="album in model.albums"
+                    class="list-group-item">
+                    <img ng-src="{{album.thumb}}" width="100px"/>
+                    {{album.title}}
+                </li>
+            </ul>
+        </div>
+        <div ng-show="model.album" class="col-xs-6">
+            <h2>Album Details</h2>
+            <h3>Artists</h3>
+            <ul>
+                <li ng-repeat="artist in model.album.artists">
+                    {{artist.name}}
+                </li>
+            </ul>
+            <h3>Genres</h3>
+            <ul>
+                <li ng-repeat="genre in model.album.genres">
+                    {{genre}}
+                </li>
+            </ul>
+            <h3>Styles</h3>
+            <ul>
+                <li ng-repeat="style in model.album.styles">
+                    {{style}}
+                </li>
+            </ul>
+            <h3>Track List</h3>
+            <ul>
+                <li ng-repeat="track in model.album.tracklist">
+                    {{track.title}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

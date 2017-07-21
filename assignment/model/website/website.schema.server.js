@@ -7,4 +7,4 @@ var websiteSchema = mongoose.Schema({
     dateCreated: {type: Date, default: Date.now}
 }, {collection: "website"});
 
-module.exports(websiteSchema);
+module.exports = websiteSchema;

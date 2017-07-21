@@ -9,7 +9,7 @@ userModel.findUserByCredentials = findUserByCredentials;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
 
-module.exports(userModel);
+module.exports = userModel;
 
 function createUser(user) {
     return userModel.create(user);

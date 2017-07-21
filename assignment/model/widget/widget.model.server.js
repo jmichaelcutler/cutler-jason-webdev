@@ -11,7 +11,7 @@ widgetModel.updateWidget = updateWidget;
 widgetModel.deleteWidget = deleteWidget;
 widgetModel.reorderWidget = reorderWidget;
 
-module.exports(widgetModel);
+module.exports = widgetModel;
 
 function createWidget(pageId, widget) {
     widget._page = pageId;

@@ -1,15 +1,15 @@
 var app = require("../../express.js");
 var widgetModel = require("../model/widget/widget.model.server");
 
-var multer = require('multer'); // npm install multer --save
-var upload = multer({dest: __dirname + '/../../public/assignment/uploads'});
+//var multer = require('multer'); // npm install multer --save
+//var upload = multer({dest: __dirname + '/../../public/assignment/uploads'});
 
 app.post("/api/assignment/page/:pageId/widget", createWidget);
 app.get("/api/assignment/page/:pageId/widget", findAllWidgetsForPage);
 app.get("/api/assignment/widget/:widgetId", findWidgetById);
 app.put("/api/assignment/widget/:widgetId", updateWidget);
 app.delete("/api/assignment/widget/:widgetId", deleteWidget);
-app.post("/api/assignment/upload", upload.single('myFile'), uploadImage);
+//app.post("/api/assignment/upload", upload.single('myFile'), uploadImage);
 app.put("/api/assignment/page/:pageId/widget", reorderWidgets);
 
 function createWidget(req, res) {

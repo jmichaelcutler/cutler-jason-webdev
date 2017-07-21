@@ -1,10 +1,10 @@
 (function () {
     angular
-        .module("projectPocApp")
+        .module("projectPocApp", [])
         .controller("pocController", pocController);
 
-    // var key = process.env.DISCOGS_KEY;
-    // var secret = process.env.DISCOGS_SECRET;
+    var key = process.env.DISCOGS_KEY;
+    var secret = process.env.DISCOGS_SECRET;
     var baseURL = "https://api.discogs.com";
 
     function pocController($http) {
@@ -13,9 +13,9 @@
         model.getAlbumDetails = getAlbumDetails;
 
         function findAlbumsByArtist(artist) {
-            // var url = baseURL + "/database/search?artist=" + artist + "&key=" + key + "&secret=" + secret;
+            var url = baseURL + "/database/search?artist=" + artist + "&key=" + key + "&secret=" + secret;
             // Localhost usage
-            var url = baseURL + "/database/search?artist=" + artist + "&key=" + "TQXhPZmGqmBaRlXRnrzK&secret=PLueRMKjkJPDtSejLSbgxWMNKtctoEeW";
+            // var url = baseURL + "/database/search?artist=" + artist + "&key=" + "TQXhPZmGqmBaRlXRnrzK&secret=PLueRMKjkJPDtSejLSbgxWMNKtctoEeW";
             $http.get(url)
                 .then(function (response) {
                     console.log(response);

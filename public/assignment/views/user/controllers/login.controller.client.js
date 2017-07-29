@@ -12,8 +12,12 @@
                 .login(user)
                 .then(function (response) {
                     var user = response.data;
-                    $location.url = ("/profile");
-                });
+                    $location.url = ("/user/" + user._id);
+                }, handleError);
+        }
+
+        function handleError(error) {
+            model.message = "Username " + username + " not found, please try again";
         }
     }
 })();

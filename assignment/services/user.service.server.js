@@ -8,6 +8,7 @@ passport.deserializeUser(deserializeUser);
 
 passport.use(new LocalStrategy(localStrategy));
 
+app.post('/api/login', passport.authenticate('wam'), login);
 app.post("/api/assignment/user", createUser);
 app.get("/api/assignment/user?username", findUserByUsername);
 app.get("/api/assignment/user?", findUserByCredentials);
@@ -118,4 +119,9 @@ function deserializeUser(user, done) {
         }, function (err) {
             done(err, null);
         });
+}
+
+function login(req, res) {
+    var user = req.user;
+    res.json(user);
 }

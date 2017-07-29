@@ -1,5 +1,12 @@
 var app = require("../../express.js");
 var userModel = require("../model/user/user.model.server");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+
+passport.serializeUser(serializeUser);
+passport.deserializeUser(deserializeUser);
+
+passport.use(new LocalStrategy(localStrategy));
 
 app.post("/api/assignment/user", createUser);
 app.get("/api/assignment/user?username", findUserByUsername);
@@ -82,4 +89,33 @@ function deleteUser(req, res) {
 
 function userError(err, res) {
     res.sendStatus(404);
+}
+
+function localStrategy(username, password, done) {
+    userModel
+        .findUserByCredentials(username, password)
+        .then(function (user) {
+            if (!user) {
+                return done(null, false);
+            }
+            return done(null, user);
+        }, function (err) {
+            if (err) {
+                return done(err);
+            }
+        })
+}
+
+function serializeUser(user, done) {
+    done(null, user);
+}
+
+function deserializeUser(user, done) {
+    userModel
+        .findUserById(user._id)
+        .then(function (user) {
+            done(null, user);
+        }, function (err) {
+            done(err, null);
+        });
 }

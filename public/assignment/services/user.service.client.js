@@ -7,6 +7,8 @@
 
         return {
             login: login,
+            logout: logout,
+            register: register,
             createUser: createUser,
             findUserById: findUserById,
             findUserByUsername: findUserByUsername,
@@ -16,8 +18,26 @@
         };
 
         function login(user) {
-            return $http.post("/api/login");
+            return $http.post("/api/login", user)
+                .then(function (response) {
+                    return response.data;
+                });
         }
+
+        function logout(user) {
+            return $http.post("/api/logout", user)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+        function register(user) {
+            return $http.post("/api/register", user)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
         function createUser(user) {
             var url = "/api/assignment/user";
             return $http.post(url, user)

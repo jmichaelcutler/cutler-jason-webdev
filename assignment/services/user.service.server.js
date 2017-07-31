@@ -2,13 +2,28 @@ var app = require("../../express.js");
 var userModel = require("../model/user/user.model.server");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+var FacebookStrategy = require("passport-facebook").Strategy;
+var bcrypt = require("bcrypt-nodejs");
 
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
 passport.use(new LocalStrategy(localStrategy));
 
+
+var facebookConfig = {
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK_URL
+};
+
+passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+
+app.get('/auth/facebook', passport.authenticat('facebook', {scope: 'email'}));
 app.post('/api/login', passport.authenticate('wam'), login);
+app.post('/api/logout', logout);
+app.post('/api/register', register);
+app.get('/api/loggedin', loggedin);
 app.post("/api/assignment/user", createUser);
 app.get("/api/assignment/user?username", findUserByUsername);
 app.get("/api/assignment/user?", findUserByCredentials);
@@ -123,5 +138,43 @@ function deserializeUser(user, done) {
 
 function login(req, res) {
     var user = req.user;
-    res.json(user);
+    if (user && bcrypt.compareSync(password, user.password)) {
+        res.json(user);
+    } else {
+        done(null, false);
+    }
+
+}
+
+function logout(req, res) {
+    req.logOut();
+    res.send(200);
+}
+
+function register(req, res) {
+    var user = req.body;
+    user.password = bcrypt.hashSync(user.password);
+    userModel
+        .createUser(user)
+        .then(function (user) {
+            if (user) {
+                req.login(user, function (err) {
+                    if (err) {
+                        res.status(400).send(err);
+                    } else {
+                        res.json(user);
+                    }
+                });
+            }
+        });
+}
+
+function loggedin(req, res) {
+    res.send(req.isAuthenticated() ? req.user : '0');
+}
+
+
+function facebookStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByFacebookId(profile.id)
 }

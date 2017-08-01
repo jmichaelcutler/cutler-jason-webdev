@@ -19,7 +19,7 @@ var facebookConfig = {
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
-app.get('/auth/facebook', passport.authenticat('facebook', {scope: 'email'}));
+app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 app.post('/api/login', passport.authenticate('wam'), login);
 app.post('/api/logout', logout);
 app.post('/api/register', register);

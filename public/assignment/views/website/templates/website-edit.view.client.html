@@ -47,6 +47,9 @@
     </div>
 
     <div class="col-sm-8">
+        <div ng-show="model.message" class="alert alert-danger">
+            {{model.message}}
+        </div>
         <form ng-submit="model.updateWebsite()">
             <div class="form-group">
                 <label for="sitename">Website Name</label>

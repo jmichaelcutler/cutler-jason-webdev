@@ -40,7 +40,7 @@
     <div class="container-fluid">
         <div class="col-sm-4 hidden-xs">
             <div class="list-group">
-                <div ng-repeate="page in model.pages" class="col-xs-12">
+                <div ng-repeat="page in model.pages" class="col-xs-12">
                     <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
                         {{page.name}}
                     </a>
@@ -52,6 +52,9 @@
         </div>
 
         <div class="col-sm-8">
+            <div ng-show="model.message" class="alert alert-danger">
+                {{model.message}}
+            </div>
             <div class="form-group">
                 <label for="sitename">Name</label>
                 <input ng-model="page.name"

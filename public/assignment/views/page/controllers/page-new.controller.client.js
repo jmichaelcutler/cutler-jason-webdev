@@ -13,7 +13,7 @@
             PageService
                 .findPagesByWebsiteId(model.websiteId)
                 .then(function () {
-                    model.pages = pages
+                    model.pages = pages;
                 }, findPagesError);
 
             function findPagesError(error) {
@@ -24,6 +24,9 @@
         init();
 
         function createPage() {
+            if (model.page.name === null || typeof model.page.name === 'undefined') {
+                model.message = "Please provide a name for your website";
+            }
             PageService.createPage(model.websiteId, model.page)
                 .then(function () {
                     $location.url = "/user" + model.userId + "/website" + model.websiteId + "/page";

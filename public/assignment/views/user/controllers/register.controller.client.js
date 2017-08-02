@@ -10,12 +10,15 @@
         function register(username, password, password2) {
 
             if (username === null || username === '' || typeof username === 'undefined') {
-                model.error = 'Username is required';
+                model.message = 'Username is required';
                 return;
             }
 
-            if (password !== password2 || password === null || typeof password === 'undefined') {
-                model.error = "Passwords must match";
+            if (password === null || password2 === null || typeof password === 'undefined' || typeof password2 === 'undefined') {
+                model.message = "Must provide and verify password."
+            }
+            if (password !== password2) {
+                model.message = "Passwords must match";
                 return;
             }
 

@@ -50,6 +50,9 @@
             } else if (model.currentWidget.widgetType = "HEADING" && typeof model.currentWidget.size === "undefined") {
                 model.error = "Please define a valid heading size 1-6"
             }
+            if (model.currentWidget.name === null || typeof model.currentWidget.name === 'undefined') {
+                model.message = "Please name your widget!";
+            }
             WidgetService
                 .updateWidget(model.widgetId, model.currentWidget)
                 .then(function () {

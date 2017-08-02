@@ -16,6 +16,9 @@
         function createWidget() {
             model.message = null;
             model.error = null;
+            if (model.currentWidget.name === null || typeof model.currentWidget.name === 'undefined') {
+                model.message = "Please provide a name for your widget!";
+            }
             if (model.currentWidget === null || typeof model.currentWidget === 'undefined' || model.currentWidget === '') {
                 model.currentWidget = {
                     widgetType: model.widgetType

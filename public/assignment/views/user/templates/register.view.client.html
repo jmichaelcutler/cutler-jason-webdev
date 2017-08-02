@@ -1,6 +1,10 @@
 <div class="container-fluid">
     <h1>Register</h1>
 
+    <div ng-show="model.message" class="alert alert-danger">
+        {{model.message}}
+    </div>
+
     <form ng-submit="model.register">
         <div class="form-group">
             <label for="username">Username:</label>
@@ -27,12 +31,11 @@
                    type="password"
                    id="password2"
                    class="form-control"
-                   placeholder="Verifyy password"/>
+                   placeholder="Verify password"/>
         </div>
 
-        <button type="submit"
-                class="btn btn-primary btn-block"
-        >Register
+        <button class="btn btn-primary btn-block">
+            Register
         </button>
         <a class="btn btn-danger btn-block"
            href="#!/">Cancel</a>

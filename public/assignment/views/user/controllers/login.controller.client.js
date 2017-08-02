@@ -8,6 +8,9 @@
         model.login = login;
 
         function login(user) {
+            if (user.username === null || user.password === null) {
+                model.message = "Username and password are required, please try again."
+            }
             UserService
                 .login(user)
                 .then(function (response) {

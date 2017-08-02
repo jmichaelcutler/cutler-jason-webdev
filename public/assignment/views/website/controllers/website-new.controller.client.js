@@ -23,7 +23,7 @@
 
         function createWebsite(name, description) {
             if (!name) {
-                model.alert = "Website name cannot be null!"
+                model.message = "Please provide a name for your website"
             } else {
                 var newWebsite = {
                     name: name,

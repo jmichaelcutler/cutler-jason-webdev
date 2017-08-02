@@ -17,13 +17,16 @@
                 }, findPageError);
 
             function findPageError(error) {
-                model.message = "An error occurred, unable to find page"
+                model.message = "An error occurred, unable to find page";
             }
         }
 
         init();
 
         function updatePage(page) {
+            if (page.name === null || typeof page.name === 'undefined') {
+                model.message = "Please provide a name for your page";
+            }
             PageService
                 .updatePage(model.pageId, page)
                 .then(function () {

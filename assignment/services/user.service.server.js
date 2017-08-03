@@ -8,8 +8,7 @@ var bcrypt = require("bcrypt-nodejs");
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
-passport.use(new LocalStrategy(localStrategy));
-
+passport.use(new LocalStrategy({}, localStrategy));
 
 var facebookConfig = {
     clientID: process.env.FACEBOOK_CLIENT_ID,
@@ -20,7 +19,7 @@ var facebookConfig = {
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
-app.post('/api/login', passport.authenticate('wam'), login);
+app.post('/api/login', passport.authenticate('WebAppMaker'), login);
 app.post('/api/logout', logout);
 app.post('/api/register', register);
 app.get('/api/loggedin', loggedin);
@@ -107,21 +106,6 @@ function userError(err, res) {
     res.sendStatus(404);
 }
 
-function localStrategy(username, password, done) {
-    userModel
-        .findUserByCredentials(username, password)
-        .then(function (user) {
-            if (!user) {
-                return done(null, false);
-            }
-            return done(null, user);
-        }, function (err) {
-            if (err) {
-                return done(err);
-            }
-        })
-}
-
 function serializeUser(user, done) {
     done(null, user);
 }
@@ -177,4 +161,23 @@ function loggedin(req, res) {
 function facebookStrategy(token, refreshToken, profile, done) {
     userModel
         .findUserByFacebookId(profile.id)
+}
+
+function localStrategy(username, password, done) {
+    userModel
+        .findUserByCredentials(username, password)
+        .then(
+            function (user) {
+                if (user.username === username && user.password === password) {
+                    return done(null, user);
+                } else {
+                    return done(null, false);
+                }
+            },
+            function (err) {
+                if (err) {
+                    return done(err);
+                }
+            }
+        );
 }

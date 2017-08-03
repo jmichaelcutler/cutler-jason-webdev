@@ -4,6 +4,7 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var FacebookStrategy = require("passport-facebook").Strategy;
 var bcrypt = require("bcrypt-nodejs");
+var auth = authorized;
 
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
@@ -29,6 +30,12 @@ app.get("/api/assignment/user?", findUserByCredentials);
 app.get("/api/assignment/user/:userId", findUserById);
 app.put("/api/assignment/user/:userId", updateUser);
 app.delete("/api/assignment/user/:userId", deleteUser);
+
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+        successRedirect: '/#/user',
+        failureRedirect: '/#/login'
+    }));
 
 function createUser(req, res) {
     var user = req.body;
@@ -179,4 +186,12 @@ function localStrategy(username, password, done) {
                 }
             }
         );
+}
+
+function authorized(req, res, next) {
+    if (!req.isAuthenticated()) {
+        res.send(401);
+    } else {
+        next();
+    }
 }

@@ -23,11 +23,9 @@
                         }, function () {
                             scope.error = "An error has occurred, no changes made";
                             $(element).sortable("cancel");
-                        })
+                        });
                 }
             });
         }
     }
-
-
 })();

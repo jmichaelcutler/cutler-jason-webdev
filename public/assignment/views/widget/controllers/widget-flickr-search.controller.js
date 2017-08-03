@@ -20,7 +20,7 @@
                 }, flickrError);
 
             function flickrError(error) {
-                model.error = "There was an error connecting with Flickr"
+                model.error = "There was an error connecting with Flickr";
             }
         }
 

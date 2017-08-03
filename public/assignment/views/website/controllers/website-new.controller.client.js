@@ -23,7 +23,7 @@
 
         function createWebsite(name, description) {
             if (!name) {
-                model.message = "Please provide a name for your website"
+                model.message = "Please provide a name for your website";
             } else {
                 var newWebsite = {
                     name: name,
@@ -37,7 +37,7 @@
                     if (newSite !== null) {
                         $location.url = "/user/" + model.userId + "website";
                     } else {
-                        model.message("Website not created")
+                        model.message = "Website not created";
                     }
                 }
 

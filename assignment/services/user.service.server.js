@@ -127,7 +127,6 @@ function login(req, res) {
     } else {
         done(null, false);
     }
-
 }
 
 function logout(req, res) {
@@ -160,7 +159,7 @@ function loggedin(req, res) {
 
 function facebookStrategy(token, refreshToken, profile, done) {
     userModel
-        .findUserByFacebookId(profile.id)
+        .findUserByFacebookId(profile.id);
 }
 
 function localStrategy(username, password, done) {

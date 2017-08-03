@@ -50,7 +50,7 @@ function updatePage(req, res) {
         .updatePage(pageId, page)
         .then(function (status) {
             res.sendStatus(status);
-        })
+        });
 }
 
 function deletePage(req, res) {
@@ -59,7 +59,7 @@ function deletePage(req, res) {
         .deletePage(pageId)
         .then(function (status) {
             res.sendStatus(status);
-        })
+        });
 }
 
 function pageError(err, res) {

@@ -29,7 +29,7 @@
         }
 
         function deleteError(error) {
-            model.message = "An error occured, user not deleted."
+            model.message = "An error occured, user not deleted.";
         }
 
         function updateUser(user) {
@@ -41,9 +41,7 @@
         }
 
         function updateError(error) {
-            model.message = "An error occurred, user was not updated."
+            model.message = "An error occurred, user was not updated.";
         }
     }
-
-
 })();

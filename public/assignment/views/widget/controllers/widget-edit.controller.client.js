@@ -37,7 +37,7 @@
         }
 
         function deleteWidgetError(error) {
-            model.error = "An error has occurred, widget could not be deleted."
+            model.error = "An error has occurred, widget could not be deleted.";
         }
 
         function updateWidget() {
@@ -48,7 +48,7 @@
                 (model.currentWidget.url === null || model.currentWidget.url.$isEmpty())) {
                 model.error = "Invalid URL";
             } else if (model.currentWidget.widgetType = "HEADING" && typeof model.currentWidget.size === "undefined") {
-                model.error = "Please define a valid heading size 1-6"
+                model.error = "Please define a valid heading size 1-6";
             }
             if (model.currentWidget.name === null || typeof model.currentWidget.name === 'undefined') {
                 model.message = "Please name your widget!";

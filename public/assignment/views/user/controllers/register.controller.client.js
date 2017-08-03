@@ -15,7 +15,8 @@
             }
 
             if (password === null || password2 === null || typeof password === 'undefined' || typeof password2 === 'undefined') {
-                model.message = "Must provide and verify password."
+                model.message = "Must provide and verify password.";
+                return;
             }
             if (password !== password2) {
                 model.message = "Passwords must match";

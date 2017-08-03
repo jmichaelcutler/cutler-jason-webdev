@@ -28,14 +28,14 @@
             return $http.post("/api/logout", user)
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
 
         function register(user) {
             return $http.post("/api/register", user)
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
 
         function createUser(user) {
@@ -43,7 +43,7 @@
             return $http.post(url, user)
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
 
         function findUserById(id) {
@@ -59,7 +59,7 @@
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
 
         function findUserByCredentials(username, password) {
@@ -83,7 +83,7 @@
             return $http.delete(url)
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
     }
 })();

@@ -34,7 +34,7 @@
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
 
         function updateWebsite(websiteId, website) {

@@ -62,7 +62,7 @@
             })
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
 
         function reorderWidget(pageId, start, end) {
@@ -70,7 +70,7 @@
             return $http.put(url)
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
     }
 })();

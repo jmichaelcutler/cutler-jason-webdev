@@ -10,7 +10,6 @@ userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
 userModel.findUserByFacebookId = findUserByFacebookId;
 
-
 module.exports = userModel;
 
 function findUserByFacebookId(facebookId) {

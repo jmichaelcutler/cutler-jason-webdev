@@ -1,0 +1,44 @@
+input.form-control,
+textarea.form-control,
+select.form-control {
+    margin-bottom: 5px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top {
+    padding-right: 15px;
+}
+
+.navbar-default {
+    background-color: darkgreen;
+    border-color: darkgreen;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-link {
+    color: mintcream;
+}
+
+.navbar.navbar-default a {
+    color: mintcream;
+}
+
+nav.navbar.navbar-inverse.navbar-fixed-top {
+    padding-right: 15px;
+}
+
+.glyphicon-cog {
+    text-align: right;
+    padding-right: 15px;
+}
+
+body {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}

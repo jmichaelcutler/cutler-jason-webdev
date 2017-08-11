@@ -1,18 +1,30 @@
 (function () {
     angular
         .module("MusicDBApp")
-        .config(Config);
+        .config(config);
 
-    function Config($routeProvider) {
+    function config($routeProvider) {
         $routeProvider
             .when("/login", {
-                templateUrl: "",
-                controller: "",
+                templateUrl: "views/user/templates/login.view.client.html",
+                controller: "LoginController",
                 controllerAs: "project"
             })
-            .when("/", {})
-            .when("default", {})
-            .when("/register", {})
+            .when("/", {
+                templateUrl: "views/user/templates/login.view.client.html",
+                controller: "LoginController",
+                controllerAs: "project"
+            })
+            .when("default", {
+                templateUrl: "views/user/templates/login.view.client.html",
+                controller: "LoginController",
+                controllerAs: "project"
+            })
+            .when("/register", {
+                templateUrl: "views/user/templates/register.view.client.html",
+                controller: "RegisterController",
+                controllerAs: "project"
+            })
             .when("/profile", {})
     }
 })();

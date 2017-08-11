@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <h1>Register</h1>
+
+    <div ng-show="project.message" class="alert alert-danger">
+        {{project.message}}
+    </div>
+
+    <form ng-submit="model.register">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input ng-model="model.user.username"
+                   type="text"
+                   class="form-control"
+                   id="username"
+                   placeholder="Username"/>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input ng-model="model.user.password"
+                   type="password"
+                   class="form-control"
+                   id="password"
+                   placeholder="Password"/>
+
+        </div>
+
+        <div class="form-group">
+            <label for="password2">Verify password:</label>
+            <input ng-model="model.user.password2"
+                   type="password"
+                   id="password2"
+                   class="form-control"
+                   placeholder="Verify password"/>
+        </div>
+
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input ng-model="project.user.firstName"
+                   type="text"
+                   class="form-control"
+                   id="firstName"
+                   placeholder="First Name"/>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input ng-model="project.user.lastName"
+                   type="text"
+                   class="form-control"
+                   id="lastName"
+                   placeholder="Last Name"/>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input ng-model="project.user.email"
+                   type="text"
+                   class="form-control"
+                   id="email"
+                   placeholder="Email address"/>
+        </div>
+
+        <div class="form-group">
+            <label for="user">User</label>
+            <input ng-model="project.user.userType"
+                   id="user"
+                   type="radio"
+                   value="user"
+                   name="userType"/>
+
+            <label for="artist">Artist</label>
+            <input ng-model="project.user.userType"
+                   id="artist"
+                   type="radio"
+                   value="artist"
+                   name="userType"/>
+        </div>
+
+        <button class="btn btn-primary btn-block">
+            Register
+        </button>
+        <a class="btn btn-danger btn-block"
+           href="#!/">Cancel</a>
+    </form>
+
+</div>

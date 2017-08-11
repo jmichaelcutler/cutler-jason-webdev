@@ -7,6 +7,7 @@ var userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
+    roles: {type: String, default: 'USER', enum: ['USER', 'ARTIST', 'ADMIN']},
     dateCreated: {type: Date, default: Date.now}
     // TODO Add playlists
     // TODO Add reviews

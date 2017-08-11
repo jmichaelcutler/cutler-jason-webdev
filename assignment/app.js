@@ -4,8 +4,6 @@ module.exports = function (app) {
     require("./services/page.service.server");
     require("./services/widget.service.server");
     require("./model/models.server")();
-    require("./directives/wbdv-sortable")();
-    require("./directives/wam-directives")();
 };
 
 

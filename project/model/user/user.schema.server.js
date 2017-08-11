@@ -10,6 +10,6 @@ var userSchema = mongoose.Schema({
     dateCreated: {type: Date, default: Date.now}
     // TODO Add playlists
     // TODO Add reviews
-}, {collection: "person"});
+}, {collection: "user"});
 
 module.exports = userSchema;

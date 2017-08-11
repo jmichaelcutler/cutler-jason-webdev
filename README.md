@@ -35,6 +35,3 @@ and registered users to create playlists and reviews of songs.
   
   ### Data Model
   ![Project Data Model](public/project/webdev_project_data_model.jpg)
-  
-  ### Proof of Concept
-  * [Link](https://polar-sea-82088.herokuapp.com/poc/index.html)

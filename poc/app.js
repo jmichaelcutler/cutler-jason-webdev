@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("projectPocApp", [])
+        .module("projectPocApp", ['ngRoute'])
         .controller("pocController", pocController);
 
     var key = process.env.DISCOGS_KEY;

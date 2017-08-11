@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("WebAppMaker")
+        .module("wbdv-sortable", [])
         .directive("wbdvDirectives", sortWidget);
 
     function sortWidget($http) {

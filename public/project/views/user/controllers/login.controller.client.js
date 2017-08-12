@@ -21,7 +21,7 @@
                     } else if (user.type === "artist") {
                         $location.url = ("/artist/" + user._id);
                     } else {
-                        $location.url = ("/admin")
+                        $location.url = ("admin");
                     }
                 }, handleError);
         }

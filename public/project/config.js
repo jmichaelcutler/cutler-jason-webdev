@@ -11,7 +11,7 @@
                 controllerAs: "project"
             })
             .when("/project", {
-                templateUrl: "views/user/templates/login.view.client.html",
+                templateUrl: "views/search/templates/search.view.client.html",
                 controller: "LoginController",
                 controllerAs: "project"
             })

@@ -23,7 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./assignment/app.js")(app);
-require("./project/app.js")(app);
+require("./project/app.js");
 
 
 var port = process.env.PORT || 3000;

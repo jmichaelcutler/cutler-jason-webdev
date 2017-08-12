@@ -10,9 +10,9 @@
                 controller: "LoginController",
                 controllerAs: "project"
             })
-            .when("/project", {
+            .when("/project/", {
                 templateUrl: "views/search/templates/search.view.client.html",
-                controller: "LoginController",
+                controller: "SearchController",
                 controllerAs: "project"
             })
             .when("/project/admin", {

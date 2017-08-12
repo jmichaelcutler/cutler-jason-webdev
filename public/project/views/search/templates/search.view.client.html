@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4">
+            <h1>Music DB App</h1>
+            <h2>Album Search by Artist</h2>
+            <input ng_model="model.artist"
+                   class="form-control"
+                   placeholder="Enter artist name">
+            <button class="btn btn-primary btn-block"
+                    ng-click="project.findAlbumsByArtist(project.artist)">Search
+            </button>
+            <button class="btn btn-success btn-block"
+                    href="#!/login.html">Login
+            </button>
+            <button class="btn btn-danger btn-block"
+                    href="http://www.google.com">Go to Google
+            </button>
+            <h3>Search Results</h3>
+            <ul class="list-group">
+                <li ng-click="project.getAlbumDetails(album.resource_url)" ng-repeat="album in project.albums"
+                    class="list-group-item">
+                    <img ng-src="{{album.thumb}}" width="100px"/>
+                    {{album.title}}
+                </li>
+            </ul>
+
+        </div>
+        <div ng-show="project.album" class="col-xs-8">
+            <h2>Album Details</h2>
+            <h3>Artists</h3>
+            <ul>
+                <li ng-repeat="artist in project.album.artists">
+                    {{artist.name}}
+                </li>
+            </ul>
+            <h3>Genres</h3>
+            <ul>
+                <li ng-repeat="genre in project.album.genres">
+                    {{genre}}
+                </li>
+            </ul>
+            <h3>Styles</h3>
+            <ul>
+                <li ng-repeat="style in project.album.styles">
+                    {{style}}
+                </li>
+            </ul>
+            <h3>Track List</h3>
+            <ul>
+                <li ng-repeat="track in project.album.tracklist">
+                    {{track.title}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

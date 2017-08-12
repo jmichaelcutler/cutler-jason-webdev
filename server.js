@@ -22,7 +22,7 @@ var passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-require("./assignment/app.js")(app);
+require("./assignment/app.js");
 require("./project/app.js");
 
 

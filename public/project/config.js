@@ -30,25 +30,25 @@
                 controllerAs: "project"
             })
             .when("/user/profile", {
-                templateUrl: "views/user/profile.view.client.html",
+                templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "UserProfileController",
                 controllerAs: "project",
                 resolve: {loggedin: checkLoggedin}
             })
             .when("/user/:uid", {
-                templateUrl: "views/user/profile.view.client.html",
+                templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "UserProfileController",
                 controllerAs: "project",
                 resolve: {loggedin: checkLoggedin}
             })
             .when("/artist/profile", {
-                templateUrl: "views/artist/profile.view.client.html",
+                templateUrl: "views/artist/templates/profile.view.client.html",
                 controller: "ArtistProfileController",
                 controllerAs: "project",
                 resolve: {loggedin: checkLoggedin}
             })
             .when("/artist/:aid", {
-                templateUrl: "views/artist/profile.view.client.html",
+                templateUrl: "views/artist/templates/profile.view.client.html",
                 controller: "ArtistProfileController",
                 controllerAs: "project",
                 resolve: {loggedin: checkLoggedin}

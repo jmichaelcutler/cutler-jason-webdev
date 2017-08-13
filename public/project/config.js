@@ -15,6 +15,11 @@
                 controller: "SearchController",
                 controllerAs: "project"
             })
+            .when("/results", {
+                templateUrl: "views/search/templates/search-results.view.client.html",
+                controller: "SearchController",
+                controllaerAs: "project"
+            })
             .when("/admin", {
                 templateUrl: "views/admin/admin.view.client.html"
             })

@@ -9,6 +9,7 @@
             logout: logout,
             register: register,
             createUser: createUser,
+            checkAdmin: checkAdmin,
             findUserById: findUserById,
             findUserByUsername: findUserByUsername,
             findUserByCredentials: findUserByCredentials,
@@ -84,6 +85,13 @@
                     return response.data;
                 });
         }
-    }
 
+        function checkAdmin() {
+            var url = "/api/admin";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+    }
 })();

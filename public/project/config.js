@@ -5,25 +5,25 @@
 
     function config($routeProvider) {
         $routeProvider
-            .when("/project/login", {
+            .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
                 controller: "LoginController",
                 controllerAs: "project"
             })
-            .when("/project/", {
+            .when("/", {
                 templateUrl: "views/search/templates/search.view.client.html",
                 controller: "SearchController",
                 controllerAs: "project"
             })
-            .when("/project/admin", {
+            .when("/admin", {
                 templateUrl: "views/admin/admin.view.client.html"
             })
-            .when("/project/register", {
+            .when("/register", {
                 templateUrl: "views/user/templates/register.view.client.html",
                 controller: "RegisterController",
                 controllerAs: "project"
             })
-            .when("/project/user/profile", {})
-            .when("/project/artist/profile", {})
+            .when("/user/profile", {})
+            .when("/artist/profile", {})
     }
 })();

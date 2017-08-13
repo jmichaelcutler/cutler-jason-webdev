@@ -3,11 +3,7 @@
         .module("MusicDBApp")
         .factory("SearchService", SearchService);
 
-    function SearchService() {
-
-        var key = process.env[DISCOGS_KEY];
-        var secret = process.env.DISCOGS_SECRET;
-        var baseURL = "https://api.discogs.com";
+    function SearchService($http) {
 
         return {
             findAlbumsByArtist: findAlbumsByArtist,
@@ -15,8 +11,8 @@
         };
 
         function findAlbumsByArtist(artist) {
-            var url = baseURL + "/database/search?artist=" + artist + "&key=" + key + "&secret=" + secret;
-            $http.get(url)
+            var url = "/api/results";
+            $http.get(url, artist)
                 .then(function (response) {
                     return response.data;
                 });

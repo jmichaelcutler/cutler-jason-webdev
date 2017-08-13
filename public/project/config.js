@@ -22,7 +22,10 @@
             })
             .when("/admin", {
                 templateUrl: "views/admin/admin.view.client.html",
-                resolve: {loggedin: checkLoggedin}
+                resolve: {
+                    loggedin: checkLoggedin,
+                    currentAdmin: checkAdmin
+                }
             })
             .when("/register", {
                 templateUrl: "views/user/templates/register.view.client.html",
@@ -55,7 +58,7 @@
             })
     }
 
-    var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
+    function checkLoggedin($q, $timeout, $http, $location, $rootScope) {
         var deferred = $q.defer();
         $http.get('/api/loggedin').success(function (user) {
             $rootScope.errorMessage = null;
@@ -67,5 +70,22 @@
             }
         });
         return deferred.promise;
-    };
+    }
+
+    function checkAdmin($q, $location, userService) {
+        var deferred = $q.deferred;
+        userService
+            .checkAdmin()
+            .then(function (currentUser) {
+                if (currentUser === 0) {
+                    deferred.resolve({});
+                    $location.url('/');
+                } else {
+                    deferred.resolve(currentUser);
+                }
+            });
+        return deferred.promise;
+    }
+
+
 })();

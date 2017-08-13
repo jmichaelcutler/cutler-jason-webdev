@@ -21,6 +21,7 @@ passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 app.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 app.post('/api/project/login', passport.authenticate("MusicDBApp"), login);
 app.post('/api/project/logout', logout);
+app.get('api/admin', checkAdmin),
 app.post('/api/project/register', register);
 app.get('/api/project/loggedin', loggedin);
 app.post("/api/project/user", createUser);
@@ -227,4 +228,12 @@ function googleStrategy(token, refreshToken, profile, done) {
                 }
             }
         );
+}
+
+function checkAdmin(req, res) {
+    if (req.isAuthenticated() && req.user.roles.indexOf('ADMIN') > -1) {
+        res.json(req.user);
+    } else {
+        res.send('0');
+    }
 }

@@ -10,6 +10,6 @@ function findAlbumsByArtist($http, artist) {
     var discogUrl = baseURL + "/database/search?artist=" + artist + "&key=" + key + "&secret=" + secret;
     $http.get(discogUrl)
         .then(function (response) {
-            return response.data;
+            return response;
         });
 }

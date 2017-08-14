@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <h1>Admin Artists</h1>
+    <ul class="list-group">
+        <li ng-repeat="artist in project.findAllArtists()" class="list-group-item">
+            <a ng-show href="#!/artist/{{artist._id}}">{{artist.firstName}} {{artist.lastName}}</a>
+            <a class="pull-right" ng-click="project.deleteArtist(artist)">
+                <span class="glyphicons glyphicons-remove"></span></a>
+        </li>
+    </ul>
+</div>

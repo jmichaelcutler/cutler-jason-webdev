@@ -8,7 +8,7 @@
         project.findAlbumsByArtist = findAlbumsByArtist;
         project.getAlbumDetails = getAlbumDetails;
 
-        function findAlbumsByArtist() {
+        function findAlbumsByArtist(artist) {
             SearchService
                 .findAlbumsByArtist(artist)
                 .then(function (response) {

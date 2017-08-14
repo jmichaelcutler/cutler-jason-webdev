@@ -1,6 +1,6 @@
 var app = require('../../express.js');
 
-app.get("/api/results", findAlbumsByArtist);
+app.get("/api/project/results", findAlbumsByArtist);
 
 var key = process.env[DISCOGS_KEY];
 var secret = process.env.DISCOGS_SECRET;

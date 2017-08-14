@@ -13,7 +13,7 @@
                 .findAlbumsByArtist(artist)
                 .then(function (response) {
                     project.albums = response.data.results;
-                    $location("/results")
+                    $location("/results");
                 });
         }
 

@@ -14,7 +14,7 @@
             var url = "/api/project/results";
             return $http.get(url, artist)
                 .then(function (response) {
-                    return response.data.results;
+                    return response.data;
                 });
         }
 

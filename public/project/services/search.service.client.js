@@ -19,7 +19,7 @@
         }
 
         function getAlbumDetails(url) {
-            $http.get(url)
+            return $http.get(url)
                 .then(function (response) {
                     return response.data;
                 })

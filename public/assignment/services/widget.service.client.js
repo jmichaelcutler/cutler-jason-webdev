@@ -10,8 +10,8 @@
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
             deleteWidget: deleteWidget,
-            uploadImage: uploadImage,
-            sortWidget: reorderWidget
+            uploadImage: uploadImage
+            // sortWidget: reorderWidget
         };
 
         function createWidget(pageId, widget) {
@@ -65,12 +65,12 @@
                 });
         }
 
-        function reorderWidget(pageId, start, end) {
-            var url = "/api/assignment/page/" + pageId + "/widget?start=" + start + "&end=" + end;
-            return $http.put(url)
-                .then(function (response) {
-                    return response.data;
-                });
-        }
+        // function reorderWidget(pageId, start, end) {
+        //     var url = "/api/assignment/page/" + pageId + "/widget?start=" + start + "&end=" + end;
+        //     return $http.put(url)
+        //         .then(function (response) {
+        //             return response.data;
+        //         });
+        // }
     }
 })();

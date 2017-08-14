@@ -3,7 +3,7 @@
     <form ng-submit="project.updateUser()">
         <div class="form-group">
             <label for="username">Username</label>
-            <input ng-model="project.currentUser.username"
+            <input ng-model="project.user.username"
                    type="text"
                    class="form-control"
                    id="username"
@@ -47,9 +47,7 @@
     </form>
 
     <a class="btn btn-primary btn-block"
-       href="#!/user/{{project.userId}}/playlist" type="submit">Playlists</a>
-    <a class="btn btn-success btn-block"
-       href="#!/user/{{project.userId}}/reviews" type="submit">Reviews</a>
+       href="#!/artist/{{project.userId}}/songs" type="submit">Songs</a>
     <a class="btn btn-danger  btn-block"
        href="#!/">Logout</a>
 </div>

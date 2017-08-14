@@ -12,7 +12,7 @@
 
         function findAlbumsByArtist(artist) {
             var url = "/api/project/results";
-            $http.get(url, artist)
+            return $http.get(url, artist)
                 .then(function (response) {
                     return response.data.results;
                 });

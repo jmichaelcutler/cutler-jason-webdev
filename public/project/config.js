@@ -77,6 +77,14 @@
                 controllerAs: "project",
                 resolve: {loggedin: checkLoggedin}
             })
+            .when("/user/:uid/review", {
+                templateUrl: "views/review/templates/review.view.client.html",
+                resolve: {loggedin: checkLoggedin}
+            })
+            .when("/user/:uid/playlist", {
+                templateUrl: "views/playlist.view.client.html",
+                resolve: {loggedin: checkLoggedin}
+            })
     }
 
     function checkLoggedin($q, $timeout, $http, $location, $rootScope) {

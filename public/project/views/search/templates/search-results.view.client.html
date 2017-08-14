@@ -4,10 +4,11 @@
             <h1>Music DB App</h1>
             <h2>Album Search by Artist</h2>
             <input ng_model="project.artist"
+                   id="artist"
                    class="form-control"
                    placeholder="Enter artist name">
             <button class="btn btn-primary btn-block"
-                    ng-click="project.findAlbumsByArtist(project.artist)">Search
+                    ng-click="project.findAlbumsByArtist(artist)">Search
             </button>
             <button class="btn btn-success btn-block"
                     href="#!/login.html">Login
@@ -17,7 +18,8 @@
             </button>
             <h3>Search Results</h3>
             <ul class="list-group">
-                <li ng-click="project.getAlbumDetails(album.resource_url)" ng-repeat="album in project.albums"
+                <li ng-repeat="album in project.albums"
+                    ng-click="project.getAlbumDetails(album.resource_url)"
                     class="list-group-item">
                     <img ng-src="{{album.thumb}}" width="100px"/>
                     {{album.title}}

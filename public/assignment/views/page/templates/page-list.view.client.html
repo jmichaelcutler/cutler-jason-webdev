@@ -26,7 +26,7 @@
                     {{model.error}}
                 </div>
             </div>
-            <div ng-repeate="page in model.pages" class="col-xs-12">
+            <div ng-repeat="page in model.pages" class="col-xs-12">
                 <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
                     {{page.name}}
                 </a>

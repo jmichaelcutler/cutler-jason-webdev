@@ -3,7 +3,7 @@
         .module("MusicDBApp")
         .controller("SearchController", SearchController);
 
-    function SearchController(SearchService) {
+    function SearchController($location, SearchService) {
         var project = this;
         project.findAlbumsByArtist = findAlbumsByArtist;
         project.getAlbumDetails = getAlbumDetails;
@@ -13,6 +13,7 @@
                 .findAlbumsByArtist(artist)
                 .then(function (response) {
                     project.albums = response.data.results;
+                    $location("/results")
                 });
         }
 

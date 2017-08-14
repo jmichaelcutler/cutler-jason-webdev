@@ -16,7 +16,7 @@ module.exports = function () {
 
     return {
         userModel: require("./user/user.model.server")(),
-        websiteModel: require("./artist/artist.model.server")(),
+        websiteModel: require("./review/review.model.server")(),
         pageModel: require("./song/song.model.server")(),
         widgetModel: require("./playlist/playlist.model.server")()
     };

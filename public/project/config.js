@@ -18,12 +18,29 @@
             .when("/results", {
                 templateUrl: "views/search/templates/search-results.view.client.html",
                 controller: "SearchController",
-                controllaerAs: "project"
+                controllerAs: "project"
             })
             .when("/admin", {
-                templateUrl: "views/admin/admin.view.client.html",
+                templateUrl: "views/admin/templates/admin.view.client.html",
                 resolve: {
-                    loggedin: checkLoggedin,
+                    currentAdmin: checkAdmin
+                }
+            })
+            .when("admin/user", {
+                templateUrl: "views/admin/templates/admin-users.view.client.html",
+                resolve: {
+                    currentAdmin: checkAdmin
+                }
+            })
+            .when("admin/artist", {
+                templateUrl: "views/admin/templates/admin-artists.view.client.html",
+                resolve: {
+                    currentAdmin: checkAdmin
+                }
+            })
+            .when("admin/review", {
+                templateUrl: "views/admin/templates/admin-reviews.view.client.html",
+                resolve: {
                     currentAdmin: checkAdmin
                 }
             })
@@ -73,7 +90,7 @@
     }
 
     function checkAdmin($q, $location, userService) {
-        var deferred = $q.deferred;
+        var deferred = $q.defer();
         userService
             .checkAdmin()
             .then(function (currentUser) {

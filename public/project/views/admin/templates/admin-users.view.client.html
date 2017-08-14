@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <h1>Admin Users</h1>
+    <ul class="list-group">
+        <li ng-repeat="user in project.findAllUsers()" class="list-group-item">
+            <a href="#/user/:{{user._id}}">{{user.firstName}} {{user.lastName}}>/</a>
+            <a class="pull-right" ng-click="project.deleteUser(user)">
+                <span class="glyphicons glyphicons-remove"></span></a>
+        </li>
+    </ul>
+</div>

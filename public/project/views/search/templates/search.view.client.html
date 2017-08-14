@@ -3,12 +3,12 @@
         <div class="col-xs-12">
             <h1>Music DB App</h1>
             <h2>Album Search by Artist</h2>
-            <input ng-model="artist"
+            <input ng-model="project._artist"
                    class="form-control"
                    placeholder="Enter artist name">
             <button class="btn btn-primary btn-block"
                     href="#!/results"
-                    ng-click="project.findAlbumsByArtist(artist)">
+                    ng-click="findAlbumsByArtist(project.artist)">
                 Search
             </button>
             <button class="btn btn-success btn-block"

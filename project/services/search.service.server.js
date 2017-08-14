@@ -1,4 +1,4 @@
-var app = require('../../express.js');
+var app = require('../../express');
 
 app.get("/api/project/results", findAlbumsByArtist);
 
@@ -8,7 +8,7 @@ var baseURL = "https://api.discogs.com";
 
 function findAlbumsByArtist($http, artist) {
     var discogUrl = baseURL + "/database/search?artist=" + artist + "&key=" + key + "&secret=" + secret;
-    $http.get(discogUrl)
+    return $http.get(discogUrl)
         .then(function (response) {
             return response;
         });

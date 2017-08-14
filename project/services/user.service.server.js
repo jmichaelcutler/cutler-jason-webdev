@@ -21,12 +21,14 @@ passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 app.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 app.post('/api/project/login', passport.authenticate("MusicDBApp"), login);
 app.post('/api/project/logout', logout);
-app.get('api/admin', checkAdmin),
+app.get('api/admin', checkAdmin);
 app.post('/api/project/register', register);
 app.get('/api/project/loggedin', loggedin);
 app.post("/api/project/user", createUser);
 app.get("/api/project/user?username", findUserByUsername);
-app.get("/api/project/user?", findUserByCredentials);
+app.get("/api/project/user?", findAllUsers);
+app.get("/api/project/artist?username", findArtistByUsername);
+app.get("/api/project/artist?", findAllArtists);
 app.get("/api/project/user/:userId", findUserById);
 app.put("/api/project/user/:userId", updateUser);
 app.delete("/api/project/user/:userId", deleteUser);
@@ -62,6 +64,20 @@ function findUserByUsername(req, res) {
         }, userError(err, res));
 }
 
+function findAllUsers(req, res) {
+    var username = req.query.username;
+    var password = req.query.password;
+    var userType = req.query.roles;
+    if (username && password && (userType === 'USER' )) {
+        return findUserByCredentials(req, res);
+    }
+    userModel
+        .findAllUsers()
+        .then(function (users) {
+            res.json(users);
+        });
+}
+
 function findUserByCredentials(req, res) {
     var username = req.query["username"];
     var password = req.query["password"];
@@ -76,6 +92,23 @@ function findUserByCredentials(req, res) {
         }, userError(err, res));
 }
 
+function findArtistByUsername(req, res) {
+    return findUserByUsername(req, res);
+}
+
+function findAllArtists(req, res) {
+    var username = req.query.username;
+    var password = req.query.password;
+    var userType = req.query.roles;
+    if (username && password && userType === 'ARTIST') {
+        return findUserByCredentials(req, res);
+    }
+    userModel
+        .findAllArtists()
+        .then(function (artists) {
+            res.json(artists);
+        })
+}
 function findUserById(req, res) {
     var userId = req.params["userId"];
     userModel

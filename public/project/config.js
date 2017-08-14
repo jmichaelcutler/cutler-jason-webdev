@@ -26,19 +26,23 @@
                     currentAdmin: checkAdmin
                 }
             })
-            .when("admin/user", {
+            .when("/admin/user", {
                 templateUrl: "views/admin/templates/admin-users.view.client.html",
+                controller: "AdminUserController",
+                controllerAs: "project",
                 resolve: {
                     currentAdmin: checkAdmin
                 }
             })
-            .when("admin/artist", {
+            .when("/admin/artist", {
                 templateUrl: "views/admin/templates/admin-artists.view.client.html",
+                controller: "AdminArtistsController",
+                controllerAs: "project",
                 resolve: {
                     currentAdmin: checkAdmin
                 }
             })
-            .when("admin/review", {
+            .when("/admin/review", {
                 templateUrl: "views/admin/templates/admin-reviews.view.client.html",
                 resolve: {
                     currentAdmin: checkAdmin
@@ -103,6 +107,4 @@
             });
         return deferred.promise;
     }
-
-
 })();

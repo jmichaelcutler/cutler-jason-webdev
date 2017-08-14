@@ -8,7 +8,8 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
-userModel.findUserByGoogleId = findUserByGoogleId;
+userModel.findAllUsers = findAllUsers;
+userModel.findAllArtists = findAllArtists;
 
 module.exports = userModel;
 
@@ -40,10 +41,14 @@ function updateUser(userId, newUser) {
     });
 }
 
-function deleteUser(userId) {
-    return userModel.remove({_id: userId});
+function findAllUsers() {
+    return userModel.find({roles: 'USER'});
 }
 
-function findUserByGoogleId(googleId) {
-    //TODO
+function findAllArtists() {
+    return userModel.find({roles: 'ARTIST'});
+}
+
+function deleteUser(userId) {
+    return userModel.remove({_id: userId});
 }

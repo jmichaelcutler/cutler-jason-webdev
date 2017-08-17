@@ -1,24 +1,35 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1>Music DB App</h1>
-            <h2>Album Search by Artist</h2>
-            <input ng-model="project.artist"
-                   class="form-control"
-                   type="text"
-                   placeholder="Enter artist name">
-            <button class="btn btn-primary btn-block"
-                    href="#!/results"
-                    ng-click="findAlbumsByArtist(project.artist)">
-                Search
-            </button>
-            <button class="btn btn-success btn-block"
-                    href="#!/login">Login
-            </button>
-            <button class="btn btn-danger btn-block"
-                    href="http://www.google.com">Go to Google
-            </button>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header pull-right">
+                <a class="navbar-brand" href="#!/login">Login</a>
+                <a class="navbar-brand" href="http://www.google.com">Google</a>
+            </div>
         </div>
+    </nav>
+
+    <div class="col-xs-12">
+        <h1>Music DB App</h1>
+        <p>This application allows anonymous users to search for album information on their favorite artists, using
+            Discog's API. Registered users can log in as a:
+        </p>
+        <ul>
+            <li>User, with the ability to create their own playlists and reviews of songs, or</li>
+            <li>Artist, with the ability to post their own music</li>
+        </ul>
+        <p>Use the search tool below to begin searching for artists.</p>
+    </div>
+    <div class="col-xs-12 search-tool">
+        <h4>Album Search by Artist</h4>
+        <input ng-model="project.artist"
+               class="form-control"
+               type="text"
+               placeholder="Enter artist name">
+        <button class="btn btn-primary btn-block"
+                ng-click="findAlbumsByArtist(project.artist)">
+            Search
+        </button>
     </div>
 </div>
+
 
